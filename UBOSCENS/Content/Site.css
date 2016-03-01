@@ -1,6 +1,7 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
+    background:#EAEDF1;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +23,384 @@ select,
 textarea {
     max-width: 280px;
 }
+div.panel:first-child {
+            margin-top: 20px;
+        }
+
+        div.treeview {
+            min-width: 100px;
+            min-height: 100px;
+            max-height: 256px;
+            overflow: auto;
+            padding: 4px;
+            margin-bottom: 20px;
+            color: #369;
+            border: solid 1px;
+            border-radius: 4px;
+        }
+
+            div.treeview ul:first-child:before {
+                display: none;
+            }
+
+        .treeview, .treeview ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #369;
+        }
+
+            .treeview ul {
+                margin-left: 1em;
+                position: relative;
+            }
+
+                .treeview ul ul {
+                    margin-left: .5em;
+                }
+
+                .treeview ul:before {
+                    content: "";
+                    display: block;
+                    width: 0;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-left: 1px solid;
+                    /* creates a more theme-ready standard for the bootstrap themes */
+                    bottom: 15px;
+                }
+
+            .treeview li {
+                margin: 0;
+                padding: 0 1em;
+                line-height: 2em;
+                font-weight: 700;
+                position: relative;
+            }
+
+            .treeview ul li:before {
+                content: "";
+                display: block;
+                width: 10px;
+                height: 0;
+                border-top: 1px solid;
+                margin-top: -1px;
+                position: absolute;
+                top: 1em;
+                left: 0;
+            }
+
+        .tree-indicator {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .treeview li a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .treeview li button, .treeview li button:active, .treeview li button:focus {
+            text-decoration: none;
+            color: inherit;
+            border: none;
+            background: transparent;
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            outline: 0;
+        }
+        /* this is just for the demo */
+
+        .panel-heading:hover {
+            cursor: pointer;
+        }
+
+        .panel-heading {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .side-tab:hover {
+            cursor: pointer;
+        }
+
+        .panel.panel-default {
+            border: none;
+            box-shadow: none !important;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+
+        .panel-heading {
+            border: none;
+            background-color: #eee;
+        }
+
+        .panel-body {
+            background-color: #f5f5f5;
+        }
+
+        .panel-title {
+            font-weight: 400;
+            color: $white;
+        }
+
+        .navbar-brand {
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar-nav.navbar-right .btn {
+            position: relative;
+            z-index: 2;
+            padding: 4px 20px;
+            margin: 10px auto;
+        }
+
+        .navbar .navbar-collapse {
+            position: relative;
+        }
+
+            .navbar .navbar-collapse .navbar-right > li:last-child {
+                padding-left: 22px;
+            }
+
+        .navbar .nav-collapse {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            padding-right: 120px;
+            padding-left: 80px;
+            width: 100%;
+        }
+
+        .navbar.navbar-default .nav-collapse {
+            background-color: #f8f8f8;
+        }
+
+        .navbar.navbar-inverse .nav-collapse {
+            background-color: #222;
+        }
+
+        .navbar .nav-collapse .navbar-form {
+            border-width: 0;
+            box-shadow: none;
+        }
+
+        .nav-collapse > li {
+            float: right;
+        }
+
+        .btn.btn-circle {
+            border-radius: 50px;
+        }
+
+        .btn.btn-outline {
+            background-color: transparent;
+        }
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child; {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar .nav-collapse {
+        margin: 7.5px auto;
+        padding: 0;
+    }
+
+        .navbar .nav-collapse .navbar-form {
+            margin: 0;
+        }
+
+    .nav-collapse > li {
+        float: none;
+    }
+}
+#myCarousel .carousel-caption {
+    left:0;
+	right:0;
+	bottom:0;
+	text-align:left;
+	padding:10px;
+	background:rgba(0,0,0,0.6);
+	text-shadow:none;
+}
+
+#myCarousel .list-group {
+	position:absolute;
+	top:0;
+	right:0;
+}
+#myCarousel .list-group-item {
+	border-radius:0px;
+	cursor:pointer;
+}
+#myCarousel .list-group .active {
+	background-color:#eee;	
+}
+#myCarousel .carousel-inner .item img{
+    width:100%;
+}
+
+@media (min-width: 992px) { 
+	#myCarousel {padding-right:33.3333%;}
+	#myCarousel .carousel-controls {display:none;} 	
+}
+@media (max-width: 991px) { 
+	.carousel-caption p,
+	#myCarousel .list-group {display:none;} 
+}
+/*Footer Contact*/
+.footer-contact{
+    background:#2c2c2c;
+	padding:20px 0;
+	color:#a8a8a8;
+}
+.footer-contact h3, .footer-contact p{color:#a8a8a8;}
+.footer-contact .title{ border-bottom: 1px solid #000;}
+.footer-contact ul{list-style:none;}
+.footer-contact ul li{
+	line-height:24px;
+}
+.footer-contact ul li .glyphicon{font-size: 10px; top: 0;}
+
+
+/*Footer CSS*/
+
+footer {
+	background:#b1b0b0;
+}
+footer .panel {
+	box-shadow: none;
+}
+.collapse-footer {}
+.collapse-footer p {
+	font-size:14px;
+	line-height:normal;
+}
+.collapse-footer .panel {
+	background:none;
+	background-color:transparent;
+	border-radius:0;
+	margin-bottom:0;
+	border: none;
+}
+.collapse-footer .panel-heading {
+	background-color:#707070;
+	color:#231f20;
+	border-radius:0;
+}
+.collapse-footer .nav-footer {
+	padding:0;
+	color:#312424;
+	margin-left: 0;
+}
+.collapse-footer .nav-footer li {
+	list-style:none;
+}
+.collapse-footer h5.title {
+	border-bottom:1px #c4c4c4 solid;
+	padding-bottom:0;
+	font-size:18px;
+	font-weight:bold;
+	padding-bottom:6px;
+	margin-top:4px;
+	margin-bottom:4px;
+}
+.collapse-footer h5.title span {
+	border-bottom:3px #312424 solid;
+	bottom:1px;
+	padding-bottom:4px;
+}
+.collapse-footer .col-lg-6 .nav-footer li {
+	width:45%;
+	margin-right:5%;
+	float:left;
+}
+.collapse-footer .nav-footer li {
+	
+}
+.collapse-footer .nav-footer li a {
+	color:#312424;
+	font-size:14px;
+	line-height:18px;
+	padding:5px 0;
+	display:inherit;
+}
+.collapse-footer .nav-footer li a:hover  {
+	background:none;
+	background-color:transparent;
+	color:#000;
+}
+
+
+
+/*footer Subscribe*/
+#subscribe {
+    float: right;
+    margin-top: 9px;
+    width: 250px;
+}
+
+.subscribe {
+    width: 100%;
+    position: relative;
+    float: left;
+    line-height: 22px;
+	border:1px #312424 solid;
+	border-radius:3px;
+	padding:3px;
+}
+
+.subscribe button.btn {
+	float:right;
+	z-index:999;
+	position:relative;
+	background-color:#312424;
+	border:none;
+	box-shadow:none !important;
+	text-shadow:none;
+}
+.subscribe input[type="text"] {
+	position: absolute;
+	width: 65%;
+	float: Left;
+	margin-left: 0;
+	height: 30px;
+	line-height: 18px;
+	padding: 0 2px 0 26px;
+	border-radius:1px;
+	border:none;
+	box-shadow:none !important;
+	text-shadow:none;
+	z-index:0;
+	background:none;
+	background-color:transparent;
+	background-position:8px 10px;
+	background-repeat:no-repeat;
+}
+
+.subscribe:hover input, .subscribe input:focus {
+	width: 100%;
+	margin-left: 0px;
+}
+
+/*Copyrights CSS*/
+.copyright{background:#2c2c2c; padding:0 20px; color:#b1b0b0; font-size:12px;}
+.copyright-img{padding:20px 0;}
+
+
+
+

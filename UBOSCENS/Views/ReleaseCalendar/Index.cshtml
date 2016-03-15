@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CalendarLayout.cshtml";
+}
+
+<h2>Release Calendar</h2>
+<div class="row">
+    <div class=" col-md-4" style="padding-bottom:25px">
+        <div id='calendar'></div>
+    </div>
+    <div class=" col-md-8" style="padding-bottom:25px;padding-top:25px">
+        <div>
+            <h3 style="color:#005ea5;font-size:19px;font-family:arial, sans-serif; font-weight:600;">HS2 Phase One: government overview of the case for HS2 Phase One and its environmental impacts</h3>
+            <p>10 March 2016DFT and HS2 Ltd Policy paper<p>
+        </div>
+        <div>
+            <h3 style="color:#005ea5;font-size:19px;font-family:arial, sans-serif; font-weight:600;">HS2 Phase One: government overview of the case for HS2 Phase One and its environmental impacts</h3>
+            <p>10 March 2016DFT and HS2 Ltd Policy paper<p>
+        </div>
+        <div>
+            <h3 style="color:#005ea5;font-size:19px;font-family:arial, sans-serif; font-weight:600;">HS2 Phase One: government overview of the case for HS2 Phase One and its environmental impacts</h3>
+            <p>10 March 2016DFT and HS2 Ltd Policy paper<p>
+        </div>
+        <div>
+            <h3 style="color:#005ea5;font-size:19px;font-family:arial, sans-serif; font-weight:600;">HS2 Phase One: government overview of the case for HS2 Phase One and its environmental impacts</h3>
+            <p>10 March 2016DFT and HS2 Ltd Policy paper<p>
+        </div>
+
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+            })
+
+        });
+    </script>
+}

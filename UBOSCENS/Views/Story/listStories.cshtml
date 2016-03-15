@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "listStories";
+}
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var story in ViewBag.stories)
+        {
+            <div class="col-md-10 blogShort">
+                <h1>story.Title</h1>
+                <img src="/Content/@story.image" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
+                <article>
+                    <p>
+                        @story.Content
+                    </p>
+                </article>
+                <a class="btn btn-blog pull-right marginBottom10" href="/Stories/Content/@story.id">READ MORE</a>
+            </div>
+        }
+
+    </div>
+</div>

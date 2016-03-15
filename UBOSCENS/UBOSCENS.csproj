@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -93,6 +101,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="VersFx.Formats.Text.Epub">
+      <HintPath>..\packages\VersFx.Formats.Text.Epub.1.0.1\lib\VersFx.Formats.Text.Epub.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -105,12 +116,6 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -159,21 +164,101 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\Admin\DataImportController.cs" />
+    <Compile Include="Controllers\Admin\FeaturedStoriesController.cs" />
+    <Compile Include="Controllers\Admin\FPController.cs" />
+    <Compile Include="Controllers\Admin\FrontPageStatisticsController.cs" />
+    <Compile Include="Controllers\Admin\RevisionsController.cs" />
+    <Compile Include="Controllers\Admin\SectionsController.cs" />
+    <Compile Include="Controllers\Admin\SubSectionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MobileController.cs" />
+    <Compile Include="Controllers\ReleaseCalendarController.cs" />
+    <Compile Include="Controllers\StoriesController.cs" />
+    <Compile Include="Controllers\StoryController.cs" />
+    <Compile Include="Controllers\UBOSDMController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603070859583_InitialCreate.cs" />
+    <Compile Include="Migrations\201603070859583_InitialCreate.Designer.cs">
+      <DependentUpon>201603070859583_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603070908486_UBOSModel.cs" />
+    <Compile Include="Migrations\201603070908486_UBOSModel.Designer.cs">
+      <DependentUpon>201603070908486_UBOSModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603090917232_FeaturedStory.cs" />
+    <Compile Include="Migrations\201603090917232_FeaturedStory.Designer.cs">
+      <DependentUpon>201603090917232_FeaturedStory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603100608343_importlogs.cs" />
+    <Compile Include="Migrations\201603100608343_importlogs.Designer.cs">
+      <DependentUpon>201603100608343_importlogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603101055534_Sections.cs" />
+    <Compile Include="Migrations\201603101055534_Sections.Designer.cs">
+      <DependentUpon>201603101055534_Sections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603101059497_Virtuals.cs" />
+    <Compile Include="Migrations\201603101059497_Virtuals.Designer.cs">
+      <DependentUpon>201603101059497_Virtuals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603101225263_changed .cs" />
+    <Compile Include="Migrations\201603101225263_changed .Designer.cs">
+      <DependentUpon>201603101225263_changed .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603101235382_reverted to base model.cs" />
+    <Compile Include="Migrations\201603101235382_reverted to base model.Designer.cs">
+      <DependentUpon>201603101235382_reverted to base model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603101345043_unknown change.cs" />
+    <Compile Include="Migrations\201603101345043_unknown change.Designer.cs">
+      <DependentUpon>201603101345043_unknown change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603121148265_story_update.cs" />
+    <Compile Include="Migrations\201603121148265_story_update.Designer.cs">
+      <DependentUpon>201603121148265_story_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603141333489_FPSections.cs" />
+    <Compile Include="Migrations\201603141333489_FPSections.Designer.cs">
+      <DependentUpon>201603141333489_FPSections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603141340375_FPSections 2.cs" />
+    <Compile Include="Migrations\201603141340375_FPSections 2.Designer.cs">
+      <DependentUpon>201603141340375_FPSections 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UBOSDM.cs" />
+    <Compile Include="Models\UBOSModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cssfx.js" />
+    <Content Include="Content\Images\bg.png" />
+    <Content Include="Content\Images\i_1.jpg" />
+    <Content Include="Content\Images\i_2.jpg" />
+    <Content Include="Content\Images\i_3.jpg" />
+    <Content Include="Content\Images\population.png" />
+    <Content Include="Content\Images\temp55.gif" />
+    <Content Include="Content\JCss.css" />
+    <Content Include="Content\jquery.dynatable.css" />
+    <Content Include="Content\JQueryMobile.css" />
+    <Content Include="Content\JQueryMobile.js" />
+    <Content Include="Content\JSelect.js" />
+    <Content Include="Content\kcounter.js" />
+    <Content Include="Content\quickselect.css" />
     <Content Include="Content\UGD44\boottree.js" />
+    <Content Include="Content\UGD44\carousel.js" />
     <Content Include="Content\UGD44\_ugdat.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -181,19 +266,27 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Fonts\counter.otf" />
+    <None Include="Properties\PublishProfiles\uboscens - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\uboscens - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dynatable.js" />
+    <Content Include="Scripts\JQuery.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\quickselect.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -228,9 +321,72 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Mobile\Index.cshtml" />
+    <Content Include="Views\Administration\Index.cshtml" />
+    <Content Include="Uploads\CSV.csv" />
+    <Content Include="Views\FeaturedStories\Create.cshtml" />
+    <Content Include="Views\FeaturedStories\Delete.cshtml" />
+    <Content Include="Views\FeaturedStories\Details.cshtml" />
+    <Content Include="Views\FeaturedStories\Edit.cshtml" />
+    <Content Include="Views\FeaturedStories\Index.cshtml" />
+    <Content Include="Views\DataImport\Create.cshtml" />
+    <Content Include="Views\DataImport\Delete.cshtml" />
+    <Content Include="Views\DataImport\Details.cshtml" />
+    <Content Include="Views\DataImport\Edit.cshtml" />
+    <Content Include="Views\DataImport\Index.cshtml" />
+    <Content Include="Views\Administration\Visualize.cshtml" />
+    <Content Include="Views\DataImport\Visualize.cshtml" />
+    <Content Include="Views\Revisions\Create.cshtml" />
+    <Content Include="Views\Revisions\Delete.cshtml" />
+    <Content Include="Views\Revisions\Details.cshtml" />
+    <Content Include="Views\Revisions\Edit.cshtml" />
+    <Content Include="Views\Revisions\Index.cshtml" />
+    <Content Include="Views\Sections\Create.cshtml" />
+    <Content Include="Views\Sections\Delete.cshtml" />
+    <Content Include="Views\Sections\Details.cshtml" />
+    <Content Include="Views\Sections\Edit.cshtml" />
+    <Content Include="Views\Sections\Index.cshtml" />
+    <Content Include="Views\SubSections\Create.cshtml" />
+    <Content Include="Views\SubSections\Delete.cshtml" />
+    <Content Include="Views\SubSections\Details.cshtml" />
+    <Content Include="Views\SubSections\Edit.cshtml" />
+    <Content Include="Views\SubSections\Index.cshtml" />
+    <Content Include="Views\DataImport\AddToTable.cshtml" />
+    <Content Include="Views\Shared\DataLayout.cshtml" />
+    <Content Include="Views\Stories\Create.cshtml" />
+    <Content Include="Views\Stories\Delete.cshtml" />
+    <Content Include="Views\Stories\Details.cshtml" />
+    <Content Include="Views\Stories\Edit.cshtml" />
+    <Content Include="Views\Stories\Index.cshtml" />
+    <Content Include="Views\Stories\List.cshtml" />
+    <Content Include="Views\Stories\listStories.cshtml" />
+    <Content Include="Views\Story\Create.cshtml" />
+    <Content Include="Views\Story\Delete.cshtml" />
+    <Content Include="Views\Story\Details.cshtml" />
+    <Content Include="Views\Story\Edit.cshtml" />
+    <Content Include="Views\Story\Index.cshtml" />
+    <Content Include="Views\Story\listStories.cshtml" />
+    <Content Include="Views\ReleaseCalendar\Index.cshtml" />
+    <Content Include="Views\Shared\_CalendarLayout.cshtml" />
+    <Content Include="Views\ReleaseCalendar\Publications.cshtml" />
+    <Content Include="Views\FP\Create.cshtml" />
+    <Content Include="Views\FP\Delete.cshtml" />
+    <Content Include="Views\FP\Details.cshtml" />
+    <Content Include="Views\FP\Edit.cshtml" />
+    <Content Include="Views\FP\Index.cshtml" />
+    <Content Include="Views\FrontPageStatistics\Create.cshtml" />
+    <Content Include="Views\FrontPageStatistics\Delete.cshtml" />
+    <Content Include="Views\FrontPageStatistics\Details.cshtml" />
+    <Content Include="Views\FrontPageStatistics\Edit.cshtml" />
+    <Content Include="Views\FrontPageStatistics\Index.cshtml" />
+    <Content Include="Uploads\Epub\1984.epub" />
+    <Content Include="Uploads\Epub\census2014.epub" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\DataDumps\" />
+    <Folder Include="Uploads\FeaturedImages\" />
+    <Folder Include="Views\UBOSDM\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -238,6 +394,44 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603070859583_InitialCreate.resx">
+      <DependentUpon>201603070859583_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603070908486_UBOSModel.resx">
+      <DependentUpon>201603070908486_UBOSModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603090917232_FeaturedStory.resx">
+      <DependentUpon>201603090917232_FeaturedStory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603100608343_importlogs.resx">
+      <DependentUpon>201603100608343_importlogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603101055534_Sections.resx">
+      <DependentUpon>201603101055534_Sections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603101059497_Virtuals.resx">
+      <DependentUpon>201603101059497_Virtuals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603101225263_changed .resx">
+      <DependentUpon>201603101225263_changed .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603101235382_reverted to base model.resx">
+      <DependentUpon>201603101235382_reverted to base model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603101345043_unknown change.resx">
+      <DependentUpon>201603101345043_unknown change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603121148265_story_update.resx">
+      <DependentUpon>201603121148265_story_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603141333489_FPSections.resx">
+      <DependentUpon>201603141333489_FPSections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603141340375_FPSections 2.resx">
+      <DependentUpon>201603141340375_FPSections 2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -257,7 +451,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>12659</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:12659/</IISUrl>
+          <IISUrl>http://localhost:12689/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

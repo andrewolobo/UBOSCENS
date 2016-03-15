@@ -1,0 +1,58 @@
+﻿@model UBOSCENS.Models.ImportLog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ImportLog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SectionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SectionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TableID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TableID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTableID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTableID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

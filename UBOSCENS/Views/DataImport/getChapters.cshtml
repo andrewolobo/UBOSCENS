@@ -3,33 +3,34 @@
 }
 
 <h2>RevisionChapters</h2>
-@foreach (var chapter in ViewBag.chapters)
-{
-    if (chapter.Title != "(Untitled)")
+<div class="main-report-wrapper container">
+
+    @foreach (var chapter in ViewBag.chapters)
     {
-        <ul>
-            <li><a href="@chapter.Title">@chapter.Title.Split(':')[1]</a></li>
-            <ul>
-                @foreach (var subchapter in chapter.SubChapters)
-                {
-                    if (subchapter.Title != "(Untitled)")
+        if (chapter.Title != "(Untitled)")
+        {
+            <ul class="sub-report-wrapper">
+                <li><a href="@chapter.Title">@chapter.Title.Split(':')[1]</a></li>
+                <ul>
+                    @foreach (var subchapter in chapter.SubChapters)
                     {
-                        <li><a href="@subchapter.Title">@subchapter.Title.Split(' ')[1]</a></li>
+                        if (subchapter.Title != "(Untitled)")
+                        {
+                            <li><a href="@subchapter.Title">@subchapter.Title.Split(' ')[1]</a></li>
+                        }
                     }
-                }
+                </ul>
             </ul>
-        </ul>
     }
 
-}
-@section scripts{
-    <script>
-        $(document).ready(function (e) {
-            $("a").on("click", function (e) {
-                e.preventDefault();
-                window.location = "/DataImport/getContent/?chaptername=" + $(this).attr("href")
-            })
-        });
-    </script>
-
-}
+}   </div>
+    @section scripts{
+        <script>
+            $(document).ready(function (e) {
+                $("a").on("click", function (e) {
+                    e.preventDefault();
+                    window.location = "/DataImport/getContent/?chaptername=" + $(this).attr("href")
+                })
+            });
+        </script>
+    }

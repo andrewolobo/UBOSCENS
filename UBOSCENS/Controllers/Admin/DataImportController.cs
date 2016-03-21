@@ -58,6 +58,24 @@ namespace UBOSCENS.Controllers.Admin
             db.SaveChanges();
             return RedirectToAction("Index", "DataImport");
         }
+        public String setTimer()
+        {
+            DatabaseContext db = new DatabaseContext();
+            db.PopulationTimer.Select(x=>x).ToList().ForEach(i => i.Active = false);
+            db.SaveChanges();
+            db.PopulationTimer.Add(new PopulationTimer() { rate = 19, count = 24227297, asOf = new DateTime(2002, 01, 01), Active = true });
+            db.SaveChanges();
+            return null;
+        }
+        public String getTimer()
+        {
+            DatabaseContext db = new DatabaseContext();
+            var timer = db.PopulationTimer.Where(x => x.Active == true).Select(x => x).First();
+            var new_people = DateTime.Now.Subtract(timer.asOf).TotalSeconds/timer.rate;
+            var population = timer.count + new_people;
+            return JsonConvert.SerializeObject(new { population = (Int32)population, rate = timer.rate });
+
+        }
         // GET: DataImport/Details/5
         public ActionResult Details(Guid? id)
         {
@@ -88,7 +106,66 @@ namespace UBOSCENS.Controllers.Admin
         {
             var data = db.SubSections.Where(x => x.SectionID == id).Select(x => x);
             return JsonConvert.SerializeObject(data);
-
+        }
+        public List<EpubChapter> Chapters()
+        {
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            List<EpubChapter> chapters = epub.Chapters.Where(x=>x.Title.Contains("CHAPTER")).Select(x=>x).ToList();
+            return chapters;
+        }
+        public EpubChapter getNextChapter(String chapterName)
+        {
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubChapter chapters = epub.Chapters.SkipWhile(item => item.Title != chapterName).Skip(1).FirstOrDefault();
+            return chapters;
+        }
+        public EpubChapter getPreviousChapter(String chapterName)
+        {
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            epub.Chapters.Reverse();
+            EpubChapter chapters = epub.Chapters.SkipWhile(item => item.Title != chapterName).Skip(1).FirstOrDefault();
+            return chapters;
+        }
+        public EpubChapter getPreviousSubChapter(String chapterName)
+        {
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            epub.Chapters.Reverse();
+            EpubChapter chapters = epub.Chapters.Where(x => x.Title == chapterName).First().SubChapters.SkipWhile(item => item.Title != chapterName).Skip(1).FirstOrDefault();
+            return chapters;
+        }
+        public EpubChapter getNextSubChapter(String chapterName)
+        {
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubChapter chapters = epub.Chapters.Where(x => x.Title == chapterName).First().SubChapters.SkipWhile(item => item.Title != chapterName).Skip(1).FirstOrDefault();
+            return chapters;
+        }
+        public ActionResult getContent(String chaptername)
+        {
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            String stuff = "";
+            foreach (EpubChapter chapter in epub.Chapters)
+            {
+                string chapterTitle = chapter.Title;
+                string chapterHtmlContent = chapter.HtmlContent;
+                if (chapterTitle.Contains(chaptername))
+                {
+                    stuff += chapterHtmlContent;
+                }
+                foreach (var subChapter in chapter.SubChapters)
+                {
+                    if (subChapter.Title.Contains(chaptername))
+                    {
+                        stuff += subChapter.HtmlContent;
+                    }
+                }
+            }
+            ViewBag.content = stuff;
+            return View();
+        }
+        public ActionResult getChapters()
+        {
+            ViewBag.chapters = Chapters();
+            return View();
         }
         public String epubReader()
         {
@@ -103,11 +180,9 @@ namespace UBOSCENS.Controllers.Admin
                 {
                     stuff += chapterHtmlContent;
                 }
-
                 List<EpubChapter> subChapters = chapter.SubChapters;
             }
             return stuff;
-
         }
         public String getTableData(Guid? id)
         {

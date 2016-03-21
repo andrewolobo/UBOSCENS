@@ -27,6 +27,7 @@ namespace UBOSCENS.Models
         public System.Data.Entity.DbSet<UBOSCENS.Models.FPSection> FPSections { get; set; }
 
         public System.Data.Entity.DbSet<UBOSCENS.Models.FrontPageStatistics> FrontPageStatistics { get; set; }
+        public System.Data.Entity.DbSet<UBOSCENS.Models.PopulationTimer> PopulationTimer { get; set; }
         
 
     }

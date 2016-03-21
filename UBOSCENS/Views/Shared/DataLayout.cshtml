@@ -186,21 +186,12 @@
             <nav class="navbar navbar-inverse">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#"></a>
-                    </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-collapse-3">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="/Home/Index">Home</a></li>
-                            <li><a href="/Stories/listStories">2015 Census Report</a></li>
+                            <li><a href="/DataImport/getChapters">2015 Census Report</a></li>
                             <li><a href="#">Publications &amp; Feature Articles</a></li>
                             <li><a href="/DataImport/Index">Interactive Visualizations</a></li>
                             <li><a href="/ReleaseCalendar/">Release Calendar</a></li>
@@ -322,6 +313,7 @@
                 var data = e.currentTarget.href.split("/")
                 $.post("/DataImport/getSections/" + data[data.length - 1], function (data) {
                     var dat = JSON.parse(data);
+                    $("#Chapter li").remove();
                     $.each(dat, function (index, value) {
                         $("#Chapter ul").append('<li><a href="' + value.id + '">' + value.Title + '</a></li>');
                         var dr = new DropDown($('#Chapter'));
@@ -329,8 +321,8 @@
                             var data = e.currentTarget.href.split("/")
                             sectionID = data[data.length - 1];
                             $.post("/DataImport/getSubSections/" + data[data.length - 1], function (data) {
-
                                 var dat = JSON.parse(data);
+                                $("#Indicator li").remove();
                                 $.each(dat, function (index, value) {
                                     $("#Indicator ul").append('<li><a href="' + value.id + '">' + value.Title + '</a></li>');
                                     var dr = new DropDown($('#Indicator'));
@@ -340,6 +332,7 @@
                                         $.post("/DataImport/getTableData/" + data[data.length - 1], function (data) {
                                             console.log(data);
                                             var dat = JSON.parse(data);
+                                            $("#Table li").remove();
                                             $.each(dat, function (index, value) {
                                                 $("#Table ul").append('<li><a href="' + value.id + '">' + value.SectionID + '</a></li>');
                                                 var dr = new DropDown($('#Table'));

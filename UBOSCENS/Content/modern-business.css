@@ -1,0 +1,272 @@
+/*!
+ * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+    background: #EAEAEA;
+}
+
+body {
+
+}
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+/* Header Css */
+
+.navbar-header {
+
+    min-height: 120px;
+    height: 104px;
+    width: 100%;
+}
+
+.header-section {
+  width: 100%;
+  padding: 0px;
+  background: #F3A501;
+      margin-bottom: 15px;
+}
+
+.header-section .nav {
+  width: 100%;
+      background: #411F06;
+}
+
+
+.header-section .navbar {
+margin: 0px;
+}
+
+
+
+#myCarousel {
+max-height: 384px;
+}
+
+#myCarousel img {
+  width: 100%;
+  height: auto;
+  max-height: 384px;
+}
+
+#counter-2 {
+  background: #EB5F21;
+  color: #FFF;
+  font-size: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#counter-2 p {
+  color: #FFF;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+#counter-2 span {
+margin-bottom: 15px;
+}
+
+.carousel-2 {
+  background: #411F06;
+      padding: 30px;
+  color: #FFF;
+      height: 148px;
+}
+
+
+
+/* Home Page Carousel */
+
+header.carousel {
+    height: 50%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px;
+}
+
+.period {
+    display: block;
+    font-style: italic;
+}
+
+/* External Css */
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+ border: none;
+border-radius: none;
+box-shadow: none;
+}
+
+
+.panel-default>.panel-heading {
+    color: #FFF;
+    background-color: #EB5F21;
+    /* border-color: #ddd; */
+    text-align: center;
+    font-size: 10px;
+}
+
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #C0DFF0;
+    /* border: 1px solid #e3e3e3; */
+    /* border-radius: 4px; */
+    /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05); */
+    /* box-shadow: inset 0 1px 1px rgba(0,0,0,.05); */
+}
+
+
+.panel-body .btn {
+  background: #487BC0;
+  color: #FFF;
+  border: none;
+  border-radius: 0;
+}
+
+
+.mid-content {
+  margin-top: 20px;
+}
+.mid-tiles {
+  background: #FFF;
+}
+
+.tiles__unit--home, .tiles__preunit--home {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 3px 0 5px 0;
+}
+
+.tiles__figure--home, .tiles__unit--home, .tiles__preunit--home {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 3px 0 5px 0;
+}
+
+.mid-tiles img {
+  text-align: center;
+  height: auto;
+  max-height: 198px;
+}
+
+.tiles__title-dt {
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.tiles__title-dt a {
+  text-align: center;
+  color:;
+  font-size:18px;
+  padding:10px;
+  /* margin-bottom: 20px; */
+}
+
+
+/* Footer Styles */
+
+footer {
+    margin: 50px 0;
+}
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+
+    .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    width: 83%;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+    .navbar-toggle {
+    /* position: relative; */
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: #411F06;
+    /* background-image: none; */
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #FFF;
+}
+
+.navbar-header {
+    min-height: 0;
+    height: auto;
+    padding: 10px;
+    width: 100%;
+}
+
+}
+
+

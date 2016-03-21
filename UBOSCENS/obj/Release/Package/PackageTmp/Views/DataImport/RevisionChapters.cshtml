@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "RevisionChapters";
+}
+
+<h2>RevisionChapters</h2>
+@foreach (var chapter in ViewBag.chapters)
+{
+    <a href="#">@chapter.Title</a>
+}
+

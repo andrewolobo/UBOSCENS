@@ -47,7 +47,14 @@ namespace UBOSCENS.Models
         public Int32 rate { get; set; }
         public bool Active{get;set;}
     }
-
+    public class PopulationTimer
+    {
+        public Guid id { get; set; }
+        public Int32 count { get; set; }
+        public DateTime asOf { get; set; }
+        public Int32 rate { get; set; }
+        public bool Active { get; set; }
+    }
     public class Table
     {
         public Guid id { get; set; }

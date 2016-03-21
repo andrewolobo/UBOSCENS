@@ -230,6 +230,14 @@
     <Compile Include="Migrations\201603141340375_FPSections 2.Designer.cs">
       <DependentUpon>201603141340375_FPSections 2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603171148050_PopulationTimer.cs" />
+    <Compile Include="Migrations\201603171148050_PopulationTimer.Designer.cs">
+      <DependentUpon>201603171148050_PopulationTimer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603171149422_PopTimr.cs" />
+    <Compile Include="Migrations\201603171149422_PopTimr.Designer.cs">
+      <DependentUpon>201603171149422_PopTimr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -242,20 +250,45 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.js" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.js" />
+    <Content Include="Content\contact_me.js" />
     <Content Include="Content\cssfx.js" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Images\bg.png" />
     <Content Include="Content\Images\i_1.jpg" />
     <Content Include="Content\Images\i_2.jpg" />
     <Content Include="Content\Images\i_3.jpg" />
     <Content Include="Content\Images\population.png" />
     <Content Include="Content\Images\temp55.gif" />
+    <Content Include="Content\img\1.jpg" />
+    <Content Include="Content\img\2.jpg" />
+    <Content Include="Content\img\3.jpg" />
+    <Content Include="Content\img\4.jpg" />
+    <Content Include="Content\img\header-logo.png" />
+    <Content Include="Content\img\header_logo.png" />
+    <Content Include="Content\img\img_chania2.jpg" />
+    <Content Include="Content\img\img_flower2.jpg" />
+    <Content Include="Content\img\mid-1.jpg" />
+    <Content Include="Content\img\mid-2.png" />
+    <Content Include="Content\img\people.png" />
+    <Content Include="Content\img\pie-one.png" />
+    <Content Include="Content\img\piechart.png" />
+    <Content Include="Content\img\social.png" />
+    <Content Include="Content\img\women-uganda-500x332.jpg" />
     <Content Include="Content\JCss.css" />
+    <Content Include="Content\jqBootstrapValidation.js" />
     <Content Include="Content\jquery.dynatable.css" />
+    <Content Include="Content\jquery.js" />
     <Content Include="Content\JQueryMobile.css" />
     <Content Include="Content\JQueryMobile.js" />
     <Content Include="Content\JSelect.js" />
     <Content Include="Content\kcounter.js" />
+    <Content Include="Content\modern-business.css" />
     <Content Include="Content\quickselect.css" />
     <Content Include="Content\UGD44\boottree.js" />
     <Content Include="Content\UGD44\carousel.js" />
@@ -267,9 +300,45 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Fonts\counter.otf" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome\less\core.less" />
+    <Content Include="Content\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\font-awesome\less\icons.less" />
+    <Content Include="Content\font-awesome\less\larger.less" />
+    <Content Include="Content\font-awesome\less\list.less" />
+    <Content Include="Content\font-awesome\less\mixins.less" />
+    <Content Include="Content\font-awesome\less\path.less" />
+    <Content Include="Content\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome\less\spinning.less" />
+    <Content Include="Content\font-awesome\less\stacked.less" />
+    <Content Include="Content\font-awesome\less\variables.less" />
+    <Content Include="Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\font-awesome\scss\_core.scss" />
+    <Content Include="Content\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\font-awesome\scss\_list.scss" />
+    <Content Include="Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome\scss\_path.scss" />
+    <Content Include="Content\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\uboscens - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\uboscens - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\contact_me.js" />
+    <Content Include="Scripts\jqBootstrapValidation.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -284,6 +353,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -296,7 +366,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layouts.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -381,6 +451,9 @@
     <Content Include="Views\FrontPageStatistics\Index.cshtml" />
     <Content Include="Uploads\Epub\1984.epub" />
     <Content Include="Uploads\Epub\census2014.epub" />
+    <Content Include="Views\DataImport\RevisionChapters.cshtml" />
+    <Content Include="Views\DataImport\getChapters.cshtml" />
+    <Content Include="Views\DataImport\getContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -431,6 +504,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603141340375_FPSections 2.resx">
       <DependentUpon>201603141340375_FPSections 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603171148050_PopulationTimer.resx">
+      <DependentUpon>201603171148050_PopulationTimer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603171149422_PopTimr.resx">
+      <DependentUpon>201603171149422_PopTimr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

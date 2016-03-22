@@ -37,7 +37,7 @@ body {
 .header-section {
   width: 100%;
   padding: 0px;
-  background: #F3A501;
+  background: #EB5F21;
       margin-bottom: 15px;
 }
 
@@ -64,21 +64,29 @@ max-height: 384px;
 }
 
 #counter-2 {
-  background: #EB5F21;
-  color: #FFF;
-  font-size: 18px;
-  padding: 20px;
-  margin-bottom: 20px;
+background: #EB5F21;
+    color: #FFF;
+    font-size: 18px;
+    /* padding: 20px; */
+    margin-bottom: 20px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 #counter-2 p {
-  color: #FFF;
-  font-size: 23px;
-  font-weight: bold;
+    color: #FFF;
+    font-size: 17px;
+    font-weight: bold;
+    float: left;
+    text-align: center;
+    margin-right: 30px;
 }
 
 #counter-2 span {
-margin-bottom: 15px;
+    margin-bottom: 15px;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
 }
 
 .carousel-2 {
@@ -338,8 +346,13 @@ overflow: hidden;
   background: #FFF;
       float: left;
   padding: 20px;
+  width: 100%;
 }
 
+
+.no-pad {
+    padding: 0px;
+}
 
 .report-details table {
   width: 100%;

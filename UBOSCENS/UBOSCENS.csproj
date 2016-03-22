@@ -166,6 +166,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\Admin\DataImportController.cs" />
+    <Compile Include="Controllers\Admin\FactsController.cs" />
     <Compile Include="Controllers\Admin\FeaturedStoriesController.cs" />
     <Compile Include="Controllers\Admin\FPController.cs" />
     <Compile Include="Controllers\Admin\FrontPageStatisticsController.cs" />
@@ -237,6 +238,10 @@
     <Compile Include="Migrations\201603171149422_PopTimr.cs" />
     <Compile Include="Migrations\201603171149422_PopTimr.Designer.cs">
       <DependentUpon>201603171149422_PopTimr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603220914466_added Facts.cs" />
+    <Compile Include="Migrations\201603220914466_added Facts.Designer.cs">
+      <DependentUpon>201603220914466_added Facts.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -353,6 +358,13 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\DataImport\VisualizerHome.cshtml" />
+    <Content Include="Uploads\Epub\census14.epub" />
+    <Content Include="Views\Facts\Create.cshtml" />
+    <Content Include="Views\Facts\Delete.cshtml" />
+    <Content Include="Views\Facts\Details.cshtml" />
+    <Content Include="Views\Facts\Edit.cshtml" />
+    <Content Include="Views\Facts\Index.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -510,6 +522,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603171149422_PopTimr.resx">
       <DependentUpon>201603171149422_PopTimr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603220914466_added Facts.resx">
+      <DependentUpon>201603220914466_added Facts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -55,6 +55,11 @@ namespace UBOSCENS.Models
         public Int32 rate { get; set; }
         public bool Active { get; set; }
     }
+    public class Facts
+    {
+        public Guid id { get; set; }
+        public String data { get; set; }
+    }
     public class Table
     {
         public Guid id { get; set; }

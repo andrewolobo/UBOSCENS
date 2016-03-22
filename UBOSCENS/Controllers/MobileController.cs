@@ -107,7 +107,7 @@ namespace UBOSCENS.Controllers
             {
                 graphStructure graphmapper = new graphStructure();
                 graphmapper.name = item.Title;
-                graphmapper.data = item.SeriesItems.Select(x => Int32.Parse(x.Replace(",",""))).ToList();
+                graphmapper.data = item.SeriesItems.Select(x => Convert.ToDouble(x.Replace(",", ""))).ToList();
                 graph_list.Add(graphmapper);
             }
             object graph = new { Title = list.Name, xAxis = list.Category.ToArray(), yAxis = graph_list };
@@ -145,5 +145,5 @@ namespace UBOSCENS.Controllers
 class graphStructure
 {
     public string name { get; set; }
-    public List<Int32> data { get; set; }
+    public List<Double> data { get; set; }
 }

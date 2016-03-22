@@ -19,6 +19,7 @@ namespace UBOSCENS.Controllers.Admin
     {
         public List<String> th = new List<String>();
         private DatabaseContext db = new DatabaseContext();
+        public String file = "census14.epub";
 
         // GET: DataImport
         public ActionResult Index()
@@ -109,39 +110,39 @@ namespace UBOSCENS.Controllers.Admin
         }
         public List<EpubChapter> Chapters()
         {
-            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + file);
             List<EpubChapter> chapters = epub.Chapters.Where(x=>x.Title.Contains("CHAPTER")).Select(x=>x).ToList();
             return chapters;
         }
         public EpubChapter getNextChapter(String chapterName)
         {
-            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + file);
             EpubChapter chapters = epub.Chapters.SkipWhile(item => item.Title != chapterName).Skip(1).FirstOrDefault();
             return chapters;
         }
         public EpubChapter getPreviousChapter(String chapterName)
         {
-            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + file);
             epub.Chapters.Reverse();
             EpubChapter chapters = epub.Chapters.SkipWhile(item => item.Title != chapterName).Skip(1).FirstOrDefault();
             return chapters;
         }
         public EpubChapter getPreviousSubChapter(String chapterName)
         {
-            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + file);
             epub.Chapters.Reverse();
             EpubChapter chapters = epub.Chapters.Where(x => x.Title == chapterName).First().SubChapters.SkipWhile(item => item.Title != chapterName).Skip(1).FirstOrDefault();
             return chapters;
         }
         public EpubChapter getNextSubChapter(String chapterName)
         {
-            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + file);
             EpubChapter chapters = epub.Chapters.Where(x => x.Title == chapterName).First().SubChapters.SkipWhile(item => item.Title != chapterName).Skip(1).FirstOrDefault();
             return chapters;
         }
         public ActionResult getContent(String chaptername)
         {
-            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + file);
             String stuff = "";
             foreach (EpubChapter chapter in epub.Chapters)
             {
@@ -167,9 +168,13 @@ namespace UBOSCENS.Controllers.Admin
             ViewBag.chapters = Chapters();
             return View();
         }
+        public ActionResult VisualizerHome()
+        {
+            return View();
+        }
         public String epubReader()
         {
-            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + "census2014.epub");
+            EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + file);
             String stuff = "";
             foreach (EpubChapter chapter in epub.Chapters)
             {
@@ -219,7 +224,7 @@ namespace UBOSCENS.Controllers.Admin
             {
                 graphStructure graphmapper = new graphStructure();
                 graphmapper.name = item.Title;
-                graphmapper.data = item.SeriesItems.Select(x => Int32.Parse(x.Replace(".00", ""))).ToList();
+                graphmapper.data = item.SeriesItems.Select(x => Convert.ToDouble(x.Replace(".00", ""))).ToList();
                 graph_list.Add(graphmapper);
             }
             object graph = new { Title = list.Name, xAxis = list.Category.ToArray(), yAxis = graph_list };

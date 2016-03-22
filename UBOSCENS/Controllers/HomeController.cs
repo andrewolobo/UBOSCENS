@@ -16,9 +16,11 @@ namespace UBOSCENS.Controllers
     }
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             DatabaseContext db = new DatabaseContext();
+            var facts = db.Facts.Select(x => x);
             List<StatisticsModel> allStats = new List<StatisticsModel>();
             var sections = db.FPSections.Select(x=>x);
             foreach(var section in sections){
@@ -33,6 +35,7 @@ namespace UBOSCENS.Controllers
             }
             var stories = db.FeaturedStories.Where(x => x.Active == true).Select(x => x).Take(5);
             ViewBag.stats = allStats;
+            ViewBag.facts = facts;
             ViewBag.statistics = JsonConvert.SerializeObject(allStats);
             ViewBag.stories = stories.ToList();
             return View();

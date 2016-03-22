@@ -13,8 +13,6 @@ namespace UBOSCENS.Controllers
         public ActionResult Index()
         {
             Tables psmr = new Tables();
-
-
             return View();
         }
     }

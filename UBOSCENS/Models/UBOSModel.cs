@@ -30,6 +30,14 @@ namespace UBOSCENS.Models
         public String Title { get; set; }
         public String data { get; set; }
     }
+    public class VisualizerStatistics
+    {
+        public Guid id { get; set; }
+        public String Title { get; set; }
+        public String Description { get; set; }
+
+        public String data { get; set; }
+    }
     public class FeaturedStory
     {
         public Guid id { get; set; }

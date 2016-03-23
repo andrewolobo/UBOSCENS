@@ -173,6 +173,7 @@
     <Compile Include="Controllers\Admin\RevisionsController.cs" />
     <Compile Include="Controllers\Admin\SectionsController.cs" />
     <Compile Include="Controllers\Admin\SubSectionsController.cs" />
+    <Compile Include="Controllers\Admin\VisualizerStatisticsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
@@ -242,6 +243,10 @@
     <Compile Include="Migrations\201603220914466_added Facts.cs" />
     <Compile Include="Migrations\201603220914466_added Facts.Designer.cs">
       <DependentUpon>201603220914466_added Facts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603221618507_added Visualizer Statistics.cs" />
+    <Compile Include="Migrations\201603221618507_added Visualizer Statistics.Designer.cs">
+      <DependentUpon>201603221618507_added Visualizer Statistics.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -466,6 +471,11 @@
     <Content Include="Views\DataImport\RevisionChapters.cshtml" />
     <Content Include="Views\DataImport\getChapters.cshtml" />
     <Content Include="Views\DataImport\getContent.cshtml" />
+    <Content Include="Views\VisualizerStatistics\Create.cshtml" />
+    <Content Include="Views\VisualizerStatistics\Delete.cshtml" />
+    <Content Include="Views\VisualizerStatistics\Details.cshtml" />
+    <Content Include="Views\VisualizerStatistics\Edit.cshtml" />
+    <Content Include="Views\VisualizerStatistics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -525,6 +535,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603220914466_added Facts.resx">
       <DependentUpon>201603220914466_added Facts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603221618507_added Visualizer Statistics.resx">
+      <DependentUpon>201603221618507_added Visualizer Statistics.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

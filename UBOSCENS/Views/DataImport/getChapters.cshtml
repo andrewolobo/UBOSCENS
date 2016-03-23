@@ -2,7 +2,9 @@
     ViewBag.Title = "RevisionChapters";
 }
 
-<h2>RevisionChapters</h2>
+<h4>2014 Census Report</h4>
+
+<h5>Navigation Page</h5>
 <div class="main-report-wrapper container">
 
     @foreach (var chapter in ViewBag.chapters)
@@ -29,7 +31,12 @@
             $(document).ready(function (e) {
                 $("a").on("click", function (e) {
                     e.preventDefault();
-                    window.location = "/DataImport/getContent/?chaptername=" + $(this).attr("href")
+                    if ($(this).attr("href").charAt(0) != "/") {
+                        window.location = "/DataImport/getContent/?chaptername=" + $(this).attr("href")
+                    } else {
+                        window.location = $(this).attr("href");
+                    }
+
                 })
             });
         </script>

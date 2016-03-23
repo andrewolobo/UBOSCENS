@@ -170,6 +170,9 @@ namespace UBOSCENS.Controllers.Admin
         }
         public ActionResult VisualizerHome()
         {
+            DatabaseContext db = new DatabaseContext();
+            var statList = db.VStats.Select(x => x).ToList();
+            ViewBag.stats = statList;
             return View();
         }
         public String epubReader()
@@ -197,8 +200,21 @@ namespace UBOSCENS.Controllers.Admin
         }
         public ActionResult Visualize(Guid? id)
         {
+            if (id != null) {
             DatabaseContext db = new DatabaseContext();
-            var result = db.ImportLogs.Where(x => x.id == id).Select(x => x.Data).First();
+            var result = db.VStats.Where(x => x.id == id).Select(x => x.data).First();
+            var decoded = JsonConvert.DeserializeObject<Indicator>(result);
+            ViewBag.table = getTable(decoded.Tables.First().Categorization.First());
+            ViewBag.graph = getGraph(decoded.Tables.First().Categorization.First());
+            Debug.WriteLine(th.Count());
+            ViewBag.titles = th;
+            }
+            return View();
+        }
+        public ActionResult VisualizeCurrent(Guid? id)
+        {
+            DatabaseContext db = new DatabaseContext();
+            var result = db.VStats.Where(x => x.id == id).Select(x => x.data).First();
             var decoded = JsonConvert.DeserializeObject<Indicator>(result);
             ViewBag.table = getTable(decoded.Tables.First().Categorization.First());
             ViewBag.graph = getGraph(decoded.Tables.First().Categorization.First());

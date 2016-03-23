@@ -8,6 +8,7 @@
     </style>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.print.css">
@@ -42,8 +43,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a style="color: orange;" href="/Home/Index">Home</a></li>
                         <li><a style="color: orange;" href="/DataImport/getChapters">Census Main Report</a></li>
-                        <li><a style="color: orange;" href="#">Publications &amp; Feature Articles</a></li>
-                        <li><a style="color: orange;" href="/DataImport/Index">Visualizations</a></li>
+                        @*<li><a style="color: orange;" href="#">Publications &amp; Feature Articles</a></li>*@
+                        <li><a style="color: orange;" href="/DataImport/VisualizerHome/">Visualizations</a></li>
                         <li><a style="color: orange;" href="/ReleaseCalendar/">Release Calendar</a></li>
                         <li>
                         <li>

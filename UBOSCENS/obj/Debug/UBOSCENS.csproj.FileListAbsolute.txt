@@ -51,7 +51,6 @@ C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Micr
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.csprojResolveAssemblyReference.cache
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.InitialCreate.resources
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.UBOSModel.resources
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.FeaturedStory.resources
@@ -67,6 +66,8 @@ C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debu
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.PopulationTimer.resources
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.PopTimr.resources
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.addedFacts.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.addedVisualizerStatistics.resources
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.csproj.GenerateResource.Cache
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.dll
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.pdb
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.csprojResolveAssemblyReference.cache

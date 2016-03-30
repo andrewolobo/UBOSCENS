@@ -71,3 +71,4 @@ C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debu
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.dll
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.pdb
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.mapcollection.resources

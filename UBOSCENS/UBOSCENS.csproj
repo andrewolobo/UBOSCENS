@@ -248,6 +248,10 @@
     <Compile Include="Migrations\201603221618507_added Visualizer Statistics.Designer.cs">
       <DependentUpon>201603221618507_added Visualizer Statistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603300713328_mapcollection.cs" />
+    <Compile Include="Migrations\201603300713328_mapcollection.Designer.cs">
+      <DependentUpon>201603300713328_mapcollection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -270,6 +274,10 @@
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Images\bg.png" />
+    <Content Include="Content\Images\icons\bar.png" />
+    <Content Include="Content\Images\icons\heat_map.png" />
+    <Content Include="Content\Images\icons\line_chart.png" />
+    <Content Include="Content\Images\icons\scatter_plots.png" />
     <Content Include="Content\Images\i_1.jpg" />
     <Content Include="Content\Images\i_2.jpg" />
     <Content Include="Content\Images\i_3.jpg" />
@@ -302,6 +310,7 @@
     <Content Include="Content\quickselect.css" />
     <Content Include="Content\UGD44\boottree.js" />
     <Content Include="Content\UGD44\carousel.js" />
+    <Content Include="Content\UGD44\mapdata.txt" />
     <Content Include="Content\UGD44\_ugdat.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -370,6 +379,9 @@
     <Content Include="Views\Facts\Details.cshtml" />
     <Content Include="Views\Facts\Edit.cshtml" />
     <Content Include="Views\Facts\Index.cshtml" />
+    <Content Include="Uploads\Epub\2014Report.epub" />
+    <Content Include="Uploads\Epub\Report.epub" />
+    <Content Include="Views\DataImport\MapExcel.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -538,6 +550,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603221618507_added Visualizer Statistics.resx">
       <DependentUpon>201603221618507_added Visualizer Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603300713328_mapcollection.resx">
+      <DependentUpon>201603300713328_mapcollection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -88,7 +88,11 @@ namespace UBOSCENS.Controllers.Admin
                     //Add Items in the First Column to the  Cagegorization.category
                     if (line_identifier % values.Count() == 0 && line_identifier > 0)
                     {
-                        categorization_category.Add(value);
+                        if (!value.Equals(""))
+                        {
+                            categorization_category.Add(value);
+                        }
+
                         Debug.WriteLine("Column Categories :" + value);
                     }
                     if (row_identifier > 0)
@@ -126,16 +130,24 @@ namespace UBOSCENS.Controllers.Admin
             foreach (var serie in seriesID)
             {
                 UBOSCENS.Models.DataSet d = new UBOSCENS.Models.DataSet();
-                d.Title = serie.Key.Split(' ')[0];
+                var value = serie.Key.Split('_')[0];
+                d.Title = value;
+                d.Title = d.Title.ToLower();
                 //Trick: For each Column in the table, select all the row values from other_holder that match its position value
                 var list = other_holder.Where(x => otherDic[x] % col_count == serie.Value).Select(x => x).ToList();
                 d.SeriesItems = new List<string>();
                 foreach (var item in list)
                 {
-                    d.SeriesItems.Add((item.Split('_')).Count() >= 1 ? (item.Split('_'))[0] : item);
+                    if (!(((item.Split('_')).Count() >= 1 ? (item.Split('_'))[0] : item)).Equals(""))
+                    {
+                        d.SeriesItems.Add((item.Split('_')).Count() >= 1 ? (item.Split('_'))[0] : item);
+                    }
+
                 }
 
+
                 cat_list.Add(d);
+
             }
             cat.Category = categorization_category.ToList();
             cat.Series = cat_list;
@@ -168,6 +180,7 @@ namespace UBOSCENS.Controllers.Admin
             if (ModelState.IsValid)
             {
                 visualizerStatistics.id = Guid.NewGuid();
+                visualizerStatistics.data = data;
                 db.VStats.Add(visualizerStatistics);
                 db.SaveChanges();
                 return RedirectToAction("Index");

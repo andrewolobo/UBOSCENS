@@ -18,6 +18,15 @@ namespace UBOSCENS.Models
         public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
     }
+    public class MapCollection
+    {
+        public Guid id { get; set; }
+        public String name { get; set; }
+        public String description { get; set; }
+        public String data { get; set; }
+        public bool active { get; set; }
+
+    }
     public class FPSection
     {
         public Guid id { get; set; }

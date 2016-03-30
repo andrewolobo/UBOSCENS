@@ -5,32 +5,49 @@
 
 
 <input id="data" hidden value='@Html.Raw(ViewBag.table)' />
+<input id="identifier" hidden value="@ViewBag.identifier" />
 <input id="graphdata" hidden value='@Html.Raw(ViewBag.graph)' />
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" style=" margin-left: -16px; margin-bottom: 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Graphing Options <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li class="selections" id="line"><a href="#"><img class="media-object" style="width: 12%;" src="~/Content/Images/icons/line_chart.png" alt="Line Chart">Line Chart</a></li>
+        <li class="selections" id="column"><a href="#"><img class="media-object" style="width: 12%;" src="~/Content/Images/icons/bar.png" alt="Line Chart">Bar Chart</a></li>
+        <li class="selections" id="scatter"><a href="#"><img class="media-object" style="width: 12%;" src="~/Content/Images/icons/scatter_plots.png" alt="Line Chart">Scatter Plot</a></li>
+        <li class="selections" id="heatmap"><a href="#"><img class="media-object" style="width: 12%;" src="~/Content/Images/icons/heat_map.png" alt="Line Chart">Heat Map</a></li>
+        <li class="selections hide" id="pie"><a href="#"><img class="media-object" style="width: 12%;" src="~/Content/Images/icons/heat_map.png" alt="Line Chart">Pie Chart</a></li>
+
+    </ul>
+</div>
+<select id="picker" class="selectpicker bg-primary" style="margin-top: -11px;" multiple>
+    @foreach (var item in ViewBag.selections)
+    {
+        <option selected>@item</option>
+    }
+</select>
+
 <div class="row hide" style=" z-index: 900; position: relative;">
     <div class="wrap-select">
         <div id="Revision" class="wrapper-dropdown-3">
             <span>Select a Revision:</span>
-            <ul class="dropdown">
-            </ul>
+            <ul class="dropdown"></ul>
         </div>
         <div class="wrap-select">
             <div id="Chapter" class="wrapper-dropdown-3">
                 <span>Select a Section:</span>
-                <ul class="dropdown">
-                </ul>
+                <ul class="dropdown"></ul>
             </div>
             <div class="wrap-select">
                 <div id="Indicator" class="wrapper-dropdown-3">
                     <span>Select an Indicator:</span>
-                    <ul class="dropdown">
-                    </ul>
+                    <ul class="dropdown"></ul>
                 </div>
             </div>
             <div class="wrap-select">
                 <div id="Table" class="wrapper-dropdown-3">
                     <span>Select a Table:</span>
-                    <ul class="dropdown">
-                    </ul>
+                    <ul class="dropdown"></ul>
                 </div>
             </div>
         </div>
@@ -56,9 +73,87 @@
         </table>
     </div>
 </div>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 @section scripts
 {
     <script>
+        var jellybeans = "";
+        function graphOut(data) {
+            data = JSON.parse(data);
+            var dynatable = $('#table').dynatable({
+                table: {
+                    defaultColumnIdStyle: 'lowercase'
+                },
+                dataset: {
+                    records: data.Table
+                }
+            });
+            dynatable.settings.dataset.originalRecords = jellybeans;
+            console.log(jellybeans)
+            dynatable.process();
+
+            data = data.Graph;
+            map = new Highcharts.chart({
+                chart: {
+                    renderTo: 'container',
+                    type: 'column'
+                },
+                title: {
+                    text: data.Title
+                },
+                subtitle: {
+                    text: 'Source: <a href="http://www.ubos.org/">UBOS.org</a>'
+                },
+                xAxis: {
+                    categories: data.xAxis,
+                    title: {
+                        text: null
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Population (millions)',
+                        align: 'high'
+                    },
+                    labels: {
+                        overflow: 'justify'
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -40,
+                    y: 80,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                    shadow: true
+                },
+                credits: {
+                    enabled: false
+                },
+                series: data.yAxis
+            });
+        }
+        $("#picker").on("change", function (e) {
+            $.post("/DataImport/getFilter/", { identifier: $("#identifier").val(), data: $(this).val() }, function (data) {
+                console.log(data);
+                graphOut(data);
+            });
+
+        })
         // Load the fonts
         Highcharts.createElement('link', {
             href: '//fonts.googleapis.com/css?family=Unica+One',
@@ -270,13 +365,18 @@
 
 
         var json = JSON.parse($("#data").val());
+        jellybeans = json;
         var graphdata = JSON.parse($("#graphdata").val())
         $(document).ready(function () {
-            $('#table').dynatable({
+            var dynatable = $('#table').dynatable({
+                table: {
+                    defaultColumnIdStyle: 'lowercase'
+                },
                 dataset: {
                     records: json
                 }
-            });
+            },
+         { features: { pushState: false } }).data("dynatable");
             var map = new Highcharts.chart({
                 chart: {
                     renderTo: 'container',
@@ -327,6 +427,65 @@
                 },
                 series: graphdata.yAxis
             });
+            function graphType(type) {
+                map = new Highcharts.chart({
+                    chart: {
+                        polar: true,
+                        renderTo: 'container',
+                        type: type
+                    },
+                    title: {
+                        text: graphdata.Title
+                    },
+                    subtitle: {
+                        text: 'Source: <a href="http://www.ubos.org/">UBOS.org</a>'
+                    },
+                    xAxis: {
+                        categories: graphdata.xAxis,
+                        title: {
+                            text: null
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Population (millions)',
+                            align: 'high'
+                        },
+                        labels: {
+                            overflow: 'justify'
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            dataLabels: {
+                                enabled: true
+                            }
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'top',
+                        x: -40,
+                        y: 80,
+                        floating: true,
+                        borderWidth: 1,
+                        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                        shadow: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: graphdata.yAxis
+                });
+            }
+
+            $(".selections").on("click", function (e) {
+                console.log("Changed Option");
+                graphType($(this).attr('id'));
+            })
+
 
         });
     </script>

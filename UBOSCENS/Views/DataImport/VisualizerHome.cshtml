@@ -1,44 +1,26 @@
 ﻿@{
     ViewBag.Title = "VisualizerHome";
 }
-<div class="container" style="background-color:white;padding: 67px;">
-    <div class="row grid-divider">
-        @foreach (var list in ViewBag.stats)
-        {
-            <div class="col-sm-4">
-                <div class="col-padding">
-                    <h3><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> @list.Title</h3>
-                    <p>@list.Description</p>
-                    <button id="@list.id" class="btn btn-sm btn-default"><i class="fa fa-fw fa-eye"></i>Show</button>
-                </div>
-            </div>
-        }
-    </div>
-    <div class="row grid-divider">
-        @foreach (var list in ViewBag.stats)
-        {
-            <div class="col-sm-4">
-                <div class="col-padding">
-                    <h3><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> @list.Title</h3>
-                    <p>@list.Description</p>
-                    <button id="@list.id" class="btn btn-sm btn-default"><i class="fa fa-fw fa-eye"></i>Show</button>
-                </div>
-            </div>
-        }
-    </div>
+<div class="container main-report-wrapper" style="background-color:white;padding: 67px;">
 
-    <div class="row grid-divider">
+
+
+        @{var i = 0;}
         @foreach (var list in ViewBag.stats)
         {
-            <div class="col-sm-4">
-                <div class="col-padding">
-                    <h3><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> @list.Title</h3>
-                    <p>@list.Description</p>
-                    <button id="@list.id" class="btn btn-sm btn-default"><i class="fa fa-fw fa-eye"></i>Show</button>
+            <div class="row grid-divider">
+                <div class="sub-report-wrapper" style="padding: 20px;">
+                    <div class="col-padding">
+                        <h3> @list.Title</h3>
+                        <p>@list.Description</p>
+                        <button id="@list.id" class="btn btn-sm btn-default"><i class="fa fa-fw fa-eye"></i>Show</button>
+                    </div>
                 </div>
             </div>
+
         }
-    </div>
+
+
 </div>
 @section scripts{
     <script>

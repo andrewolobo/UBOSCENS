@@ -69,3 +69,5 @@ C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Rele
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.FPSections2.resources
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.PopulationTimer.resources
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.PopTimr.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.addedFacts.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.addedVisualizerStatistics.resources

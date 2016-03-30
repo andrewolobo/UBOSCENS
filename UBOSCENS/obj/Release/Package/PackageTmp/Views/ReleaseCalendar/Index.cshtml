@@ -2,32 +2,72 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CalendarLayout.cshtml";
 }
-
-<h2>Release Calendar</h2>
-<div class="row">
-    <div class=" col-md-4" style="padding-bottom:25px">
-        <div id='calendar'></div>
+<div class="container" style="padding:42px;background-color:white">
+    <div class="col-xs-6 col-md-3">
+        <div class="row">
+            <div>
+                <div class="panel status panel-success">
+                    <div class="panel-heading" style="background-color: #4CAF50;">
+                        <h1 class="panel-title text-center">APR</h1>
+                    </div>
+                    <div class="panel-body text-center">
+                        <strong>2014 S&T Statistical Abstract</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel status panel-success">
+            <div class="panel-heading" style="background-color: #4CAF50;">
+                <h1 class="panel-title text-center">APR</h1>
+            </div>
+            <div class="panel-body text-center">
+                <strong>2014 S&T Statistical Abstract</strong>
+            </div>
+        </div>
+        <div class="panel status panel-success">
+            <div class="panel-heading" style="background-color: #4CAF50;">
+                <h1 class="panel-title text-center">JUN</h1>
+            </div>
+            <div class="panel-body text-center">
+                <strong>2014 Mid Year Statistical Abstract</strong>
+            </div>
+        </div><div class="panel status panel-success">
+            <div class="panel-heading" style="background-color: #4CAF50;">
+                <h1 class="panel-title text-center">APR</h1>
+            </div>
+            <div class="panel-body text-center">
+                <strong>2010 S&T Statistical Abstract</strong>
+            </div>
+        </div>
     </div>
-    <div class=" col-md-8" style="padding-bottom:25px;padding-top:25px">
-        <div>
-            <h3 style="color:#005ea5;font-size:19px;font-family:arial, sans-serif; font-weight:600;">HS2 Phase One: government overview of the case for HS2 Phase One and its environmental impacts</h3>
-            <p>10 March 2016DFT and HS2 Ltd Policy paper<p>
-        </div>
-        <div>
-            <h3 style="color:#005ea5;font-size:19px;font-family:arial, sans-serif; font-weight:600;">HS2 Phase One: government overview of the case for HS2 Phase One and its environmental impacts</h3>
-            <p>10 March 2016DFT and HS2 Ltd Policy paper<p>
-        </div>
-        <div>
-            <h3 style="color:#005ea5;font-size:19px;font-family:arial, sans-serif; font-weight:600;">HS2 Phase One: government overview of the case for HS2 Phase One and its environmental impacts</h3>
-            <p>10 March 2016DFT and HS2 Ltd Policy paper<p>
-        </div>
-        <div>
-            <h3 style="color:#005ea5;font-size:19px;font-family:arial, sans-serif; font-weight:600;">HS2 Phase One: government overview of the case for HS2 Phase One and its environmental impacts</h3>
-            <p>10 March 2016DFT and HS2 Ltd Policy paper<p>
-        </div>
+    <div class="col-md-8">
+        <h1>Upcoming Report Release Dates</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-    </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+     </div>
 </div>
+@section Styles{
+    <style>
+        .status {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+            .status .panel-title {
+                font-family: 'Oswald', sans-serif;
+                font-size: 72px;
+                font-weight: bold;
+                color: #fff;
+                line-height: 45px;
+                padding-top: 20px;
+                letter-spacing: -0.8px;
+            }
+    </style>
+
+}
 
 @section scripts
 {

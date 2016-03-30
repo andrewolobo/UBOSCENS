@@ -229,64 +229,21 @@ footer {
 
 }
 
-/* Responsive Styles */
 
-@media(max-width:991px) {
-    .customer-img,
-    .img-related {
-        margin-bottom: 30px;
-    }
-}
-
-@media(max-width:767px) {
-    .img-portfolio {
-        margin-bottom: 15px;
-    }
-
-    header.carousel .carousel {
-        height: 70%;
-    }
-
-    .navbar-brand {
-    float: left;
-    height: 50px;
-    padding: 15px 15px;
-    width: 83%;
-    font-size: 18px;
-    line-height: 20px;
-}
-
-    .navbar-toggle {
-    /* position: relative; */
-    float: right;
-    padding: 9px 10px;
-    margin-top: 8px;
-    margin-right: 15px;
-    margin-bottom: 8px;
-    background-color: #411F06;
-    /* background-image: none; */
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: #FFF;
-}
-
-.navbar-header {
-    min-height: 0;
-    height: auto;
-    padding: 10px;
-    width: 100%;
-}
-
-}
 .main-report-wrapper {
         -webkit-column-count: 3;
         -moz-column-count: 3;
         column-count: 3;
+            padding: 0px;
+    width: 100%;
+}
+
+.serach-fld {
+    background: #FFF;
 }
 
 .sub-report-wrapper {
 
-float: left;
 
 background: #FFF;
 
@@ -295,6 +252,11 @@ margin: 5px;
 padding: 10px;
 
 list-style: none;
+
+-webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid-column;         /* IE 11 */
+    display:table;                      /* Actually FF 20+ */
 
 /* text-align: center; */
 
@@ -428,4 +390,75 @@ color: #FFF ! important;
 
 .block_26 {
   display:none; 
+}
+
+
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+        .main-report-wrapper {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    padding: 0px;
+    width: 100%;
+}
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+
+    .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    width: 83%;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+    .navbar-toggle {
+    /* position: relative; */
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: #411F06;
+    /* background-image: none; */
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #FFF;
+}
+
+.navbar-header {
+    min-height: 0;
+    height: auto;
+    padding: 10px;
+    width: 100%;
+}
+
+}
+
+@media(max-width:480px) {
+    
+        .main-report-wrapper {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    padding: 0px;
+    width: 100%;
+}
 }

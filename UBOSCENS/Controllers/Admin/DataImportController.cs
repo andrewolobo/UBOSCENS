@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using UBOSCENS.Libraries;
 using UBOSCENS.Models;
 using VersFx.Formats.Text.Epub;
 using VersFx.Formats.Text.Epub.Entities;
@@ -31,6 +32,29 @@ namespace UBOSCENS.Controllers.Admin
         {
             return "";
 
+        }
+        public string getGraph(Categorization list)
+        {
+            List<graphStructure> graph_list = new List<graphStructure>();
+            foreach (var item in list.Series)
+            {
+                graphStructure graphmapper = new graphStructure();
+                graphmapper.name = item.Title;
+                graphmapper.data = item.SeriesItems.Select(x => Convert.ToDouble(x.Replace(".00", ""))).ToList();
+                graph_list.Add(graphmapper);
+            }
+            object graph = new { Title = list.Name, xAxis = list.Category.ToArray(), yAxis = graph_list };
+            return JsonConvert.SerializeObject(graph);
+        }
+        public ActionResult SparkLine()
+        {
+            var statList = db.VStats.Select(x => x).Take(3).ToList();
+            foreach (var stat in statList)
+            {
+                stat.data = getGraph((JsonConvert.DeserializeObject<Indicator>(stat.data)).Tables.First().Categorization.First());
+            }
+            ViewBag.stats = statList;
+            return View();
         }
         public ActionResult AddToTable()
         {
@@ -331,29 +355,23 @@ namespace UBOSCENS.Controllers.Admin
             ViewBag.titles = th;
             return View();
         }
-        public String getGraphData(Guid? id)
-        {
-            var result = JsonConvert.DeserializeObject<Indicator>(db.FrontPageStatistics.Where(x => x.id == id).Select(x => x.data).First());
-            var decoded = getGraph(result.Tables.First().Categorization.First());
-            return decoded;
-        }
+
         // GET: DataImport/Create
         public ActionResult Create()
         {
             return View();
         }
-        public string getGraph(Categorization list)
+        public ActionResult CaptureDistrict()
         {
-            List<graphStructure> graph_list = new List<graphStructure>();
-            foreach (var item in list.Series)
-            {
-                graphStructure graphmapper = new graphStructure();
-                graphmapper.name = item.Title;
-                graphmapper.data = item.SeriesItems.Select(x => Convert.ToDouble(x.Replace(".00", ""))).ToList();
-                graph_list.Add(graphmapper);
-            }
-            object graph = new { Title = list.Name, xAxis = list.Category.ToArray(), yAxis = graph_list };
-            return JsonConvert.SerializeObject(graph);
+            DataFunctions import = new DataFunctions();
+            var result = import.ExcelImport("DDistrictImport.xlsx");
+            ViewBag.result = result;
+            return View();
+        }
+
+        public ActionResult MapView()
+        {
+            return View();
         }
         public string getMap(Categorization list)
         {

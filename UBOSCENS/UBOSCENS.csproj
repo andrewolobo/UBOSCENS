@@ -47,7 +47,22 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LinqToExcel">
+      <HintPath>..\packages\LinqToExcel.1.10.1\lib\LinqToExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Remotion">
+      <HintPath>..\packages\LinqToExcel.1.10.1\lib\Remotion.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <HintPath>..\packages\LinqToExcel.1.10.1\lib\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Interfaces">
+      <HintPath>..\packages\LinqToExcel.1.10.1\lib\Remotion.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -184,6 +199,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\DataFunctions.cs" />
     <Compile Include="Migrations\201603070859583_InitialCreate.cs" />
     <Compile Include="Migrations\201603070859583_InitialCreate.Designer.cs">
       <DependentUpon>201603070859583_InitialCreate.cs</DependentUpon>
@@ -263,17 +279,48 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bg_m.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.js" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.js" />
     <Content Include="Content\contact_me.js" />
     <Content Include="Content\cssfx.js" />
+    <Content Include="Content\fav\android-icon-144x144.png" />
+    <Content Include="Content\fav\android-icon-192x192.png" />
+    <Content Include="Content\fav\android-icon-36x36.png" />
+    <Content Include="Content\fav\android-icon-48x48.png" />
+    <Content Include="Content\fav\android-icon-72x72.png" />
+    <Content Include="Content\fav\android-icon-96x96.png" />
+    <Content Include="Content\fav\apple-icon-114x114.png" />
+    <Content Include="Content\fav\apple-icon-120x120.png" />
+    <Content Include="Content\fav\apple-icon-144x144.png" />
+    <Content Include="Content\fav\apple-icon-152x152.png" />
+    <Content Include="Content\fav\apple-icon-180x180.png" />
+    <Content Include="Content\fav\apple-icon-57x57.png" />
+    <Content Include="Content\fav\apple-icon-60x60.png" />
+    <Content Include="Content\fav\apple-icon-72x72.png" />
+    <Content Include="Content\fav\apple-icon-76x76.png" />
+    <Content Include="Content\fav\apple-icon-precomposed.png" />
+    <Content Include="Content\fav\apple-icon.png" />
+    <Content Include="Content\fav\browserconfig.xml" />
+    <Content Include="Content\fav\favicon-16x16.png" />
+    <Content Include="Content\fav\favicon-32x32.png" />
+    <Content Include="Content\fav\favicon-96x96.png" />
+    <Content Include="Content\fav\favicon.ico" />
+    <Content Include="Content\fav\ms-icon-144x144.png" />
+    <Content Include="Content\fav\ms-icon-150x150.png" />
+    <Content Include="Content\fav\ms-icon-310x310.png" />
+    <Content Include="Content\fav\ms-icon-70x70.png" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\background_image.jpg" />
     <Content Include="Content\Images\bg.png" />
+    <Content Include="Content\Images\bg_header.jpg" />
+    <Content Include="Content\Images\bg_m.jpg" />
+    <Content Include="Content\Images\bg_u.jpg" />
     <Content Include="Content\Images\icons\bar.png" />
     <Content Include="Content\Images\icons\heat_map.png" />
     <Content Include="Content\Images\icons\line_chart.png" />
@@ -353,6 +400,7 @@
     <Content Include="Content\Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fav\manifest.json" />
     <None Include="Properties\PublishProfiles\uboscens - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\uboscens - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
@@ -382,6 +430,9 @@
     <Content Include="Uploads\Epub\2014Report.epub" />
     <Content Include="Uploads\Epub\Report.epub" />
     <Content Include="Views\DataImport\MapExcel.cshtml" />
+    <Content Include="Views\DataImport\MapView.cshtml" />
+    <Content Include="Views\DataImport\CaptureDistrict.cshtml" />
+    <Content Include="Uploads\DistrictImport\DDistrictImport.xlsx" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -421,7 +472,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Mobile\Index.cshtml" />
-    <Content Include="Views\Administration\Index.cshtml" />
     <Content Include="Uploads\CSV.csv" />
     <Content Include="Views\FeaturedStories\Create.cshtml" />
     <Content Include="Views\FeaturedStories\Delete.cshtml" />
@@ -433,7 +483,6 @@
     <Content Include="Views\DataImport\Details.cshtml" />
     <Content Include="Views\DataImport\Edit.cshtml" />
     <Content Include="Views\DataImport\Index.cshtml" />
-    <Content Include="Views\Administration\Visualize.cshtml" />
     <Content Include="Views\DataImport\Visualize.cshtml" />
     <Content Include="Views\Revisions\Create.cshtml" />
     <Content Include="Views\Revisions\Delete.cshtml" />
@@ -488,6 +537,7 @@
     <Content Include="Views\VisualizerStatistics\Details.cshtml" />
     <Content Include="Views\VisualizerStatistics\Edit.cshtml" />
     <Content Include="Views\VisualizerStatistics\Index.cshtml" />
+    <Content Include="Views\DataImport\SparkLine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

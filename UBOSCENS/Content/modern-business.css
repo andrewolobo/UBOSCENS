@@ -37,7 +37,7 @@ body {
 .header-section {
   width: 100%;
   padding: 0px;
-  background: #EB5F21;
+  background: #DD4E0C;
       margin-bottom: 15px;
 }
 
@@ -64,7 +64,7 @@ max-height: 384px;
 }
 
 #counter-2 {
-background: #EB5F21;
+background: #DD4E0C;
     color: #FFF;
     font-size: 18px;
     /* padding: 20px; */
@@ -155,7 +155,7 @@ box-shadow: none;
 
 .panel-default>.panel-heading {
     color: #FFF;
-    background-color: #EB5F21;
+    background-color: #DD4E0C;
     /* border-color: #ddd; */
     text-align: center;
     font-size: 10px;

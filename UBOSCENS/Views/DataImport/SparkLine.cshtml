@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "~/Views/Shared/DataLayout.cshtml";
+}
+<div class="container" style="background-color:white;padding: 67px;">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="font-size:18px"></div>
+                <div class="panel-body" style="background:#f5f5f5;    font-family: initial;">
+
+
+                    @{var i = 0;}
+                    @foreach (var list in ViewBag.stats)
+                    {
+                        <div class="col-md-4">
+                            @*<div id="@list.id" class="data-container" value='@Html.Raw(list.data)' style="height: 40px;"></div>*@
+                            <div class="row">
+                                <div style="padding: 8px;">
+                                    <div class="col-padding">
+                                        <h5>@list.Title</h5>
+                                        <div id="@list.id" class="data-container" value='@Html.Raw(list.data)' style="height: 40px;"></div>
+                                        <button id="@list.id" class="btn btn-sm btn-primary active" style="margin-top: 10px;"><i class="fa fa-fw fa-eye"></i>Show</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+@section styles{
+    <style>
+    </style>
+
+}
+@section scripts{
+
+    <script>
+        $(document).ready(function (e) {
+
+            $(".btn").on("click", function (e) {
+                console.log($(this).attr("id"));
+                window.location = "/DataImport/Visualize/" + $(this).attr("id")
+            })
+
+            $(function () {
+                $(".data-container").each(function (i, e) {
+                    var item = $(this);
+                    console.log($(this).attr("value"));
+                    drawGraph(item);
+
+
+                });
+
+                function drawGraph(data) {
+                    var plot = JSON.parse(data.attr("value"));
+
+                    var chart = new Highcharts.Chart({
+
+                        chart: {
+                            renderTo: data.attr("id"),
+                            type: 'line',
+                            margin: [0, 0, 0, 0],
+                            backgroundColor: 'transparent'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        xAxis: {
+                            labels: {
+                                enabled: false
+                            }
+                        },
+                        yAxis: {
+                            maxPadding: 0,
+                            minPadding: 0,
+                            gridLineWidth: 0,
+                            endOnTick: false,
+                            labels: {
+                                enabled: false
+                            }
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            series: {
+                                enableMouseTracking: false,
+                                lineWidth: 1,
+                                animation: false,
+                                shadow: false,
+                                states: {
+                                    hover: {
+                                        lineWidth: 1
+                                    }
+                                },
+                                marker: {
+                                    radius: 0,
+                                    states: {
+                                        hover: {
+                                            radius: 2
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        series: plot.yAxis
+
+                    });
+                }
+            });
+        })
+    </script>
+}

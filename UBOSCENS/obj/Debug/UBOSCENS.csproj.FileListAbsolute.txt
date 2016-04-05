@@ -72,3 +72,10 @@ C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debu
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.pdb
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.csprojResolveAssemblyReference.cache
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.mapcollection.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\LinqToExcel.dll
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\log4net.dll
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Remotion.Data.Linq.dll
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Remotion.dll
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Remotion.Interfaces.dll
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\LinqToExcel.xml
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\log4net.xml

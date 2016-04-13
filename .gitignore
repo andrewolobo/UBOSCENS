@@ -261,3 +261,11 @@ paket-files/
 *.sln.iml
 Status API Training Shop Blog About
 © 2016 GitHub, Inc. Terms Privacy Security Contact Help
+*.config
+UBOSCENS/obj/Debug/UBOSCENS.dll
+*.mdf
+UBOSCENS/App_Data/aspnet-UBOSCENS-20160226040133_log.ldf
+UBOSCENS/Web.config
+UBOSCENS/bin/UBOSCENS.dll.config
+UBOSCENS/obj/Debug/UBOSCENS.csproj.FileListAbsolute.txt
+*.config

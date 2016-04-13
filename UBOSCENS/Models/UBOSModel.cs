@@ -18,6 +18,14 @@ namespace UBOSCENS.Models
         public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
     }
+    public class Events
+    {
+        public Guid id { get; set; }
+        public String Name { get; set; }
+        public String Description { get; set; }
+        public DateTime When { get; set; }
+        public bool Active { get; set; }
+    }
     public class MapCollection
     {
         public Guid id { get; set; }

@@ -15,9 +15,9 @@
                         <strong>2014 S&T Statistical Abstract</strong>
                     </div>
                 </div>
-                <p>
+                @*<p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                </p>*@
             </div>
         </div>
     </div>
@@ -27,6 +27,17 @@
                 <div id="DIV_3">
                     <ul id="UL_4">
                         <ul id="UL_5">
+                            @foreach (var events in ViewBag.events)
+                            {
+                                <li id="LI_6">
+                                    <h3 id="H3_7">
+                                        <a href="/releases/provisionalanalysisof2015deathregistrationsinenglandandwales" id="A_8">@events.Name</a>
+                                    </h3>
+                                    <p id="P_9">
+                                        @(events.When.ToString("D")) <span id="SPAN_10">@events.Description</span>
+                                    </p>
+                                </li>
+                            }
                             <li id="LI_6">
                                 <h3 id="H3_7">
                                     <a href="/releases/provisionalanalysisof2015deathregistrationsinenglandandwales" id="A_8">Provisional analysis of 2015 death registrations in England and Wales</a>

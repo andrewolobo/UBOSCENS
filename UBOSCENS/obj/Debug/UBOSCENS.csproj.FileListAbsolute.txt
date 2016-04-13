@@ -79,3 +79,5 @@ C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Remo
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Remotion.Interfaces.dll
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\LinqToExcel.xml
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\log4net.xml
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.EventsTable.resources
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.EventsActual.resources

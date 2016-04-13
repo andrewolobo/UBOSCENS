@@ -31,6 +31,7 @@ namespace UBOSCENS.Models
         public System.Data.Entity.DbSet<UBOSCENS.Models.Facts> Facts { get; set; }
         public System.Data.Entity.DbSet<UBOSCENS.Models.VisualizerStatistics> VStats { get; set; }
         public System.Data.Entity.DbSet<UBOSCENS.Models.MapCollection> MapCollection { get; set; }
+        public System.Data.Entity.DbSet<UBOSCENS.Models.Events> Events { get; set; }
         
 
     }

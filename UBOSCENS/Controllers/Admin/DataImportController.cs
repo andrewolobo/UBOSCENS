@@ -67,6 +67,24 @@ namespace UBOSCENS.Controllers.Admin
         {
             return View();
         }
+        public ActionResult EventsAdd()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EventsAdd([Bind(Include ="Name,Description, When, Active")] Events events)
+        {
+            if (ModelState.IsValid)
+            {
+                events.id = Guid.NewGuid();
+                db.Events.Add(events);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         public Dictionary<string, string> ParseMap()
         {
             Dictionary<String, String> mapcollection = new Dictionary<String, String>();

@@ -67,8 +67,7 @@ max-height: 384px;
 background: #DD4E0C;
     color: #FFF;
     font-size: 18px;
-    /* padding: 20px; */
-    margin-bottom: 20px;
+    margin-top: 20px;
     margin: 0 auto;
     text-align: center;
 }
@@ -93,7 +92,7 @@ background: #DD4E0C;
   background: #411F06;
       padding: 30px;
   color: #FFF;
-      height: 148px;
+      min-height: 216px;
 }
 
 
@@ -419,6 +418,24 @@ color: #FFF ! important;
     header.carousel .carousel {
         height: 70%;
     }
+
+    .section-highlights {
+        width: auto !important;
+    }
+
+
+    .header-section .navbar .navbar-collapse {
+    position: absolute;
+    width: 100%;
+    z-index: 1000000;
+    padding: 14px;
+    margin: 0;
+    padding-top: 0;
+    margin-top: -27px;
+    border: none;
+}
+}
+
 
     .navbar-brand {
     float: left;

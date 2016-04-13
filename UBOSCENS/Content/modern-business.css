@@ -9,7 +9,7 @@
 html,
 body {
     height: 100%;
-    background: #EAEAEA;
+    background-color:ghostwhite;
         font-family: "Open Sans",sans-serif;
 }
 
@@ -38,7 +38,7 @@ body {
   width: 100%;
   padding: 0px;
   background: #DD4E0C;
-      margin-bottom: 15px;
+      margin-bottom: 0px;
 }
 
 .header-section .nav {

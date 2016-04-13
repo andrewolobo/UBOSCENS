@@ -25,33 +25,35 @@ namespace UBOSCENS.Models
         public String type { get; set; }
         public String id { get; set; }
         public MOproperties properties { get; set; }
+        public MOgeometry geometry { get; set; }
     }
     public class MOgeometry
     {
         public String type { get; set; }
-        public String coordinates { get; set; }
+        public object coordinates { get; set; }
     }
-    public class MOproperties{
-        public String hc_group{get;set;}
-        public float hc_middle_x{get;set;}
-        public float hc_middle_y{get;set;}
-        public String hc_key{get;set;}
-        public String hc_a2{get;set;}
-        public String labelrank{get;set;}
-        public String hasc{get;set;}
-        public String alt_name{get;set;}
-        public String woe_id{get;set;}
-        public String sub_region{get;set;}
-        public String fips{get;set;}
-        public String postal_code{get;set;}
-        public String name{get;set;}
-        public String country{get;set;}
-        public String type_en{get;set;}
-        public String region{get;set;}
-        public String longitude{get;set;}
-        public String woe_name{get;set;}
-        public String woe_label{get;set;}
-        public String type{get;set;}
+    public class MOproperties
+    {
+        public String hc_group { get; set; }
+        public float hc_middle_x { get; set; }
+        public float hc_middle_y { get; set; }
+        public String hc_key { get; set; }
+        public String hc_a2 { get; set; }
+        public String labelrank { get; set; }
+        public String hasc { get; set; }
+        public String alt_name { get; set; }
+        public String woe_id { get; set; }
+        public String sub_region { get; set; }
+        public String fips { get; set; }
+        public String postal_code { get; set; }
+        public String name { get; set; }
+        public String country { get; set; }
+        public String type_en { get; set; }
+        public String region { get; set; }
+        public String longitude { get; set; }
+        public String woe_name { get; set; }
+        public String woe_label { get; set; }
+        public String type { get; set; }
 
 
 

@@ -21,3 +21,4 @@
 /// <reference path="../content/jquery.js" />
 /// <reference path="contact_me.js" />
 /// <reference path="jqbootstrapvalidation.js" />
+/// <reference path="../content/jquery.searchable.js" />

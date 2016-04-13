@@ -21,7 +21,7 @@ namespace UBOSCENS.Controllers.Admin
         public List<String> th = new List<String>();
         private DatabaseContext db = new DatabaseContext();
         public String file = "Report.epub";
-        public String oprop = "mapdata.txt";
+        public String oprop = "map_data.txt";
 
         // GET: DataImport
         public ActionResult Index()
@@ -56,6 +56,13 @@ namespace UBOSCENS.Controllers.Admin
             ViewBag.stats = statList;
             return View();
         }
+        public List<String> getDistricts()
+        {
+            DataFunctions import = new DataFunctions();
+            Dictionary<string, Dictionary<String, String>> result = import.ExcelImportNew();
+            var districts = result.Select(x => x.Key.Replace(" ","")).ToList();
+            return districts;
+        }
         public ActionResult AddToTable()
         {
             return View();
@@ -81,10 +88,60 @@ namespace UBOSCENS.Controllers.Admin
             var item = JsonConvert.DeserializeObject<MOClass>(total);
             foreach (var s in item.features)
             {
-                mapcollection.Add(s.id,s.properties.name);
+                mapcollection.Add(s.id, s.properties.name);
                 Debug.WriteLine(s.properties.name);
             }
             return mapcollection;
+        }
+        public Object MapObject()
+        {
+            Dictionary<String, String> mapcollection = new Dictionary<String, String>();
+            string line = "";
+            string total = "";
+            string location = System.Web.Hosting.HostingEnvironment.MapPath("~/Content/UGD44/") + "/" + oprop;
+            System.IO.StreamReader file = new System.IO.StreamReader(location);
+            if (System.IO.File.Exists(location))
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line != null)
+                    {
+                        total += line;
+                    }
+                }
+
+            }
+            var item = JsonConvert.DeserializeObject<MOClass>(total);
+            var values = item;
+            var ng = item.features.Where(x => x.properties.name == "Buikwe").Select(x => x).FirstOrDefault();
+            values.features = new List<MOfeatures>();
+            values.features.Add(ng);
+            return values;
+        }
+        public Object DistrictMap(String district)
+        {
+            Dictionary<String, String> mapcollection = new Dictionary<String, String>();
+            string line = "";
+            string total = "";
+            string location = System.Web.Hosting.HostingEnvironment.MapPath("~/Content/UGD44/") + "/" + oprop;
+            System.IO.StreamReader file = new System.IO.StreamReader(location);
+            if (System.IO.File.Exists(location))
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line != null)
+                    {
+                        total += line;
+                    }
+                }
+
+            }
+            var item = JsonConvert.DeserializeObject<MOClass>(total);
+            var values = item;
+            var ng = item.features.Where(x => x.properties.name == district).Select(x => x).FirstOrDefault();
+            values.features = new List<MOfeatures>();
+            values.features.Add(ng);
+            return JsonConvert.SerializeObject(values);
         }
         public ActionResult MapExcel()
         {
@@ -118,6 +175,7 @@ namespace UBOSCENS.Controllers.Admin
             }
             return View(maps);
         }
+        [HttpPost]
         public String ReturnMap(Guid? id)
         {
             DatabaseContext db = new DatabaseContext();
@@ -327,6 +385,14 @@ namespace UBOSCENS.Controllers.Admin
 
 
         }
+        public ActionResult ListDistricts()
+        {
+            DatabaseContext db = new DatabaseContext();
+            var list = db.MapCollection.Select(x => x).Take(5);
+            ViewBag.list = list;
+            ViewBag.districts = getDistricts();
+            return View();
+        }
         public ActionResult Visualize(Guid? id)
         {
             if (id != null)
@@ -361,17 +427,52 @@ namespace UBOSCENS.Controllers.Admin
         {
             return View();
         }
+        public ActionResult ScrapPage()
+        {
+            return View();
+        }
         public ActionResult CaptureDistrict()
         {
             DataFunctions import = new DataFunctions();
-            var result = import.ExcelImport("DDistrictImport.xlsx");
+            var result = import.ExcelImportNew();
             ViewBag.result = result;
             return View();
         }
 
         public ActionResult MapView()
         {
+            DatabaseContext db = new DatabaseContext();
+            var list = db.VStats.Select(x => x).Take(5);
+            ViewBag.list = list;
             return View();
+        }
+        public String getExcelData()
+        {
+            DataFunctions d = new DataFunctions();
+            return d.ExcelImport(true);
+        }
+        [HttpGet]
+        public ActionResult DistrictProfile(String district)
+        {
+            district = this.Request.QueryString["district"];
+            DataFunctions import = new DataFunctions();
+            Debug.WriteLine(district);
+
+            Dictionary<string, Dictionary<String, String>> result = import.ExcelImportNew();
+            ViewBag.result = result.Where(x => x.Key.Contains(district)).Select(z => z).FirstOrDefault().Value;
+            var compound = result.Where(x => x.Key.Contains(district)).Select(z => z).FirstOrDefault().Value;
+            ViewBag.female = compound.Where(x => x.Key.Contains("Female Resident Population")).Select(x => x).FirstOrDefault().Value;
+            ViewBag.male = compound.Where(x => x.Key.Contains("Male Resident Population")).Select(x => x).FirstOrDefault().Value;
+            ViewBag.total = compound.Where(x => x.Key.Contains("District Total")).Select(x => x).FirstOrDefault().Value;
+            //Other Sections
+            ViewBag.population = compound.Take(10).Select(x => x);
+            ViewBag.housing = compound.Skip(10).Take(10).Select(x => x);
+            ViewBag.distribution = compound.Skip(20).Take(10).Select(x => x);
+            return View();
+        }
+        public string ProfileMap()
+        {
+            return JsonConvert.SerializeObject(MapObject());
         }
         public string getMap(Categorization list)
         {
@@ -388,17 +489,17 @@ namespace UBOSCENS.Controllers.Admin
             for (int x = 0; x < list.Category.Count; x++)
             {
                 variable = new Dictionary<string, string>();
-                variable.Add("hc-key", mapcollection.ContainsValue(list.Category[x])?mapcollection.FirstOrDefault(v => v.Value.Equals(list.Category[x])).Key:list.Category[x]);
+                variable.Add("hc-key", mapcollection.ContainsValue(list.Category[x]) ? mapcollection.FirstOrDefault(v => v.Value.Equals(list.Category[x])).Key : list.Category[x]);
                 h = x;
                 foreach (var serie in list.Series)
                 {
                     cupetit = serie.SeriesItems.ElementAt(h);
-                    variable.Add("value",serie.SeriesItems.ElementAt(h));
+                    variable.Add("value", serie.SeriesItems.ElementAt(h));
                 }
                 rows.Add(new { hc_key = mapcollection.ContainsValue(list.Category[x]) ? mapcollection.FirstOrDefault(v => v.Value.Equals(list.Category[x])).Key : list.Category[x], value = Int32.Parse(cupetit) });
             }
 
-            return ((JsonConvert.SerializeObject(rows)).Replace("_", "-")).Replace("UG.","ug-");
+            return ((JsonConvert.SerializeObject(rows)).Replace("_", "-")).Replace("UG.", "ug-");
         }
         public Object getGraphRaw(Categorization list)
         {

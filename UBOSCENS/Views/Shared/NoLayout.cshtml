@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - 2014 Population and Housing Census </title>
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/fav/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/fav/favicon-16x16.png">
+    <link rel="manifest" href="~/Content/fav/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/Content/fav/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+    <style>
+        .coverageNice {
+            margin-left: 0;
+            font-size: 20pt;
+            font-weight: bold;
+            margin-top: 9px;
+            width: 70px;
+        }
+
+        .span2 {
+            float: left;
+        }
+
+        .span1 {
+            float: left;
+            min-height: 1px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div class="container header-section" style="margin-top:20px">
+
+    </div>
+    <div class="container">
+
+        @RenderBody()
+        <hr />
+
+    </div>
+    <footer role="contentinfo" class="site-footer" id="colophon">
+        <div class="container">
+            <div class="row">
+                <div id="accordion" class="collapse-footer">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"> <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" class="collapsed"> <span class="glyphicon glyphicon-chevron-down"></span> </a> </h4>
+                        </div>
+                        <div class="panel-collapse collapse" id="collapseOne" style="height: 0px;">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h5 class="title"><span>Main Navigation</span></h5>
+                                        <div class="menu-main-menu-container">
+                                            <ul class="nav nav-footer" id="menu-main-menu-1">
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-16"><a href="http://localhost/wpJoinRedHawk/">Home</a></li>
+                                                <li><a href="#">About Us</a></li>
+                                                <li><a href="#">Service Support Model</a></li>
+                                                <li><a href="#">Payouts And Fees</a></li>
+                                                <li><a href="#">Practice Models</a></li>
+                                                <li><a href="#">Services</a></li>
+                                                <li><a href="#">Join With Us</a></li>
+                                                <li><a href="#">Contact Us</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <h5 class="title"><span>Site map</span></h5>
+                                        <div class="menu-footer-sitemap-container">
+                                            <ul class="nav nav-footer" id="menu-footer-sitemap">
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87" id="menu-item-87"><a href="http://localhost/wpJoinRedHawk/?page_id=82">Payouts And Fees</a></li>
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88" id="menu-item-88"><a href="#">Service Support Model</a></li>
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89" id="menu-item-89"><a href="#">About Us</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3  col-sm-6">
+                                        <h5 class="title"><span>Don't hesitate to contact us!</span></h5>
+                                        <p> Please give us time to let <strong>UBOSCENS</strong> know about any problems or suggestions what you have.</p>
+                                        <div class="clear"> </div>
+                                        <a class="btn btn-default btn-sm" href="#">Contact with us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row copyright-img">
+                    <div class="col-lg-4 col-sm-4"> Uganda Bureau of Statistics (UBOS)</div>
+                    <div class="col-lg-8 col-sm-8 text-right" id="footertext"> Plot 9 Colville Street, P.O. box 7186 Kampala, Uganda; Telephone: (256-414) 7060000 Fax: (256-414) 237553/230370; E-mail: ubos@ubos.org; Website: www.ubos.org. </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Copyright -->
+    </footer>
+    <!-- /footer -->
+
+
+    <script src="~/Content/UGD44/_ugdat.js"></script>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="http://code.highcharts.com/maps/highmaps.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script src="~/Content/UGD44/boottree.js"></script>
+    <script src="~/Content/UGD44/carousel.js"></script>
+    <script src="~/Content/cssfx.js"></script>
+    <script src="~/Content/kcounter.js"></script>
+
+    <script>
+
+
+
+
+        $(document).ready(function (e) {
+            console.log("Loading Counter");
+            var num = 958855210;
+            // initialise
+            $('#counter').kCounter({
+                height: 25,
+                width: 25,
+                easing: 'easeOutElastic'
+            });
+            $('#counter').kCounter({ initial: num, duration: 1000 });
+            setInterval(function () {
+
+                $('#counter').kCounter('update', num++);
+            }, 1000);
+            // $('.selectpicker').selectpicker();
+        })
+    </script>
+
+    <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-55784736-2', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+﻿@{
+    ViewBag.Title = "ListDistricts";
+    Layout = "~/Views/Shared/_LayoutMap.cshtml";
+}
+@section styles{
+    <style>
+        .dual-list .list-group {
+            margin-top: 8px;
+        }
+
+        .list-left li, .list-right li {
+            cursor: pointer;
+        }
+
+        .list-arrows {
+            padding-top: 100px;
+        }
+
+            .list-arrows button {
+                margin-bottom: 20px;
+            }
+
+        .well {
+            background-color: #f5f5f5;
+            padding: 4px;
+        }
+    </style>
+}
+<div class="row well">
+    <div class="col-md-12" style="min-height:300px;">
+        <br />
+        <div class="row">
+            <div class="dual-list list-left col-md-4">
+                <div class="well text-right">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <span class="input-group-addon glyphicon glyphicon-search"></span>
+                                <input type="text" name="SearchDualList" class="form-control" placeholder="search" />
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        @foreach (var item in ViewBag.list)
+                        {
+                            <li id="@item.id" class="list-group-item maphandler">@item.name</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div id="mapcontainer"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="" style="margin-bottom: 29px;">
+            <input type="search" id="container-search" value="" class="form-control" placeholder="Search For District...">
+        </div>
+    </div>
+    <div id="dist" class="row-fluid">
+        @foreach (var item in ViewBag.districts)
+        {
+            <div class="search">
+                <div class="col-md-1"><a href="/DataImport/DistrictProfile?district=@item">@item</a></div>
+            </div>
+
+
+        }
+    </div>
+</div>
+
+@section scripts
+{
+<script src="~/Content/jquery.searchable.js"></script>
+    <script>
+        $(".maphandler").on("click", function (e) {
+            console.log($(this).attr("id"));
+            $.post("/DataImport/ReturnMap/", { id: $(this).attr("id") }, function (data) {
+                console.log(data);
+                data = JSON.parse(data);
+                new Highcharts.Map({
+                    chart: {
+                        renderTo: 'mapcontainer',
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    title: {
+                        text: ''
+                    },
+
+                    subtitle: {
+                        text: ''
+                    },
+
+                    mapNavigation: {
+                        enabled: true
+                    },
+
+                    colorAxis: {
+                        min: 0
+                    },
+
+                    series: [{
+                        data: data,
+                        mapData: Highcharts.maps['countries/ug/ug-all'],
+                        joinBy: 'hc-key',
+                        name: 'Random data',
+                        states: {
+                            hover: {
+                                color: '#BADA55'
+                            }
+                        }
+                    }]
+                });
+            });
+        })
+        $('#dist').searchable({
+            searchField: '#container-search',
+            selector: '.search',
+            childSelector: '.col-md-1',
+            show: function (elem) {
+                elem.slideDown(100);
+            },
+            hide: function (elem) {
+                elem.slideUp(100);
+            }
+        })
+        $(function () {
+            $('body').on('click', '.list-group .list-group-item', function () {
+                $(".list-group-item").removeClass('active');
+                $(this).toggleClass('active');
+            });
+            $('[name="SearchDualList"]').keyup(function (e) {
+                var code = e.keyCode || e.which;
+                if (code == '9') return;
+                if (code == '27') $(this).val(null);
+                var $rows = $(this).closest('.dual-list').find('.list-group li');
+                var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+                $rows.show().filter(function () {
+                    var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                    return !~text.indexOf(val);
+                }).hide();
+            });
+
+            // Prepare demo data
+            var data = [{ "hc-key": "ug-7073", "value": 422771 }, { "hc-key": "ug-7067", "value": 151413 }, { "hc-key": "ug-7069", "value": 100840 }, { "hc-key": "ug-7074", "value": 89890 }, { "hc-key": "ug-7070", "value": 159922 }, { "hc-key": "ug-2595", "value": 54293 }, { "hc-key": "ug-7068", "value": 183232 }, { "hc-key": "ug-2754", "value": 1507080 }, { "hc-key": "ug-1679", "value": 368062 }, { "hc-key": "ug-2755", "value": 148218 }, { "hc-key": "ug-7072", "value": 214693 }, { "hc-key": "Luwero", "value": 456958 }, { "hc-key": "ug-7065", "value": 274953 }, { "hc-key": "ug-7066", "value": 93753 }, { "hc-key": "ug-3382", "value": 297004 }, { "hc-key": "ug-2760", "value": 328964 }, { "hc-key": "ug-1690", "value": 250548 }, { "hc-key": "ug-2759", "value": 684337 }, { "hc-key": "ug-1687", "value": 596804 }, { "hc-key": "ug-2761", "value": 197369 }, { "hc-key": "ug-2756", "value": 181799 }, { "hc-key": "ug-3381", "value": 516309 }, { "hc-key": "Ssembabule", "value": 252597 }, { "hc-key": "ug-2757", "value": 1997418 }, { "hc-key": "ug-2787", "value": 270928 }, { "hc-key": "ug-1684", "value": 207597 }, { "hc-key": "ug-7086", "value": 210173 }, { "hc-key": "ug-2780", "value": 382913 }, { "hc-key": "ug-7081", "value": 203600 }, { "hc-key": "Bukwo", "value": 89356 }, { "hc-key": "ug-7083", "value": 174508 }, { "hc-key": "ug-2781", "value": 323662 }, { "hc-key": "ug-2782", "value": 244153 }, { "hc-key": "ug-7078", "value": 323067 }, { "hc-key": "ug-1680", "value": 504197 }, { "hc-key": "ug-2744", "value": 471242 }, { "hc-key": "ug-1678", "value": 215026 }, { "hc-key": "ug-1683", "value": 236199 }, { "hc-key": "ug-1681", "value": 486319 }, { "hc-key": "ug-2775", "value": 105186 }, { "hc-key": "ug-2785", "value": 166231 }, { "hc-key": "ug-7082", "value": 202033 }, { "hc-key": "ug-1677", "value": 239268 }, { "hc-key": "ug-7084", "value": 93667 }, { "hc-key": "ug-7076", "value": 238020 }, { "hc-key": "ug-2779", "value": 353825 }, { "hc-key": "ug-2783", "value": 473239 }, { "hc-key": "ug-2778", "value": 488960 }, { "hc-key": "ug-7075", "value": 215442 }, { "hc-key": "ug-1685", "value": 252562 }, { "hc-key": "ug-7080", "value": 141919 }, { "hc-key": "ug-1688", "value": 386890 }, { "hc-key": "ug-7079", "value": 285903 }, { "hc-key": "ug-2777", "value": 242422 }, { "hc-key": "ug-1686", "value": 296833 }, { "hc-key": "ug-2784", "value": 517082 }, { "hc-key": "ug-2789", "value": 107966 }, { "hc-key": "ug-2745", "value": 225251 }, { "hc-key": "ug-7056", "value": 227792 }, { "hc-key": "ug-7054", "value": 227541 }, { "hc-key": "ug-1682", "value": 147166 }, { "hc-key": "ug-7058", "value": 105767 }, { "hc-key": "ug-7049", "value": 186696 }, { "hc-key": "ug-2763", "value": 368626 }, { "hc-key": "ug-2746", "value": 782077 }, { "hc-key": "ug-2766", "value": 183093 }, { "hc-key": "ug-2764", "value": 436345 }, { "hc-key": "ug-2788", "value": 167879 }, { "hc-key": "ug-7051", "value": 204048 }, { "hc-key": "ug-2747", "value": 206495 }, { "hc-key": "ug-7053", "value": 239327 }, { "hc-key": "ug-2786", "value": 181050 }, { "hc-key": "ug-2762", "value": 134379 }, { "hc-key": "ug-2765", "value": 408043 }, { "hc-key": "ug-2753", "value": 186134 }, { "hc-key": "ug-2790", "value": 103432 }, { "hc-key": "ug-2751", "value": 139012 }, { "hc-key": "ug-2791", "value": 156690 }, { "hc-key": "ug-7057", "value": 142224 }, { "hc-key": "ug-2750", "value": 396794 }, { "hc-key": "ug-2749", "value": 133506 }, { "hc-key": "ug-7055", "value": 104254 }, { "hc-key": "ug-2769", "value": 383644 }, { "hc-key": "ug-2767", "value": 178004 }, { "hc-key": "ug-2752", "value": 484822 }, { "hc-key": "ug-7048", "value": 240082 }, { "hc-key": "ug-7064", "value": 120720 }, { "hc-key": "ug-2748", "value": 113161 }, { "hc-key": "ug-2770", "value": 224387 }, { "hc-key": "ug-3383", "value": 234440 }, { "hc-key": "ug-2771", "value": 572986 }, { "hc-key": "ug-3386", "value": 249625 }, { "hc-key": "ug-3387", "value": 486360 }, { "hc-key": "ug-3392", "value": 528231 }, { "hc-key": "ug-2772", "value": 469236 }, { "hc-key": "ug-3385", "value": 414454 }, { "hc-key": "ug-3394", "value": 252144 }, { "hc-key": "ug-3384", "value": 694992 }, { "hc-key": "Kibaale", "value": 785088 }, { "hc-key": "Kiruhura", "value": 328077 }, { "hc-key": "ug-7052", "value": 266197 }, { "hc-key": "ug-3393", "value": 281705 }, { "hc-key": "ug-7060", "value": 281637 }, { "hc-key": "ug-2773", "value": 422204 }, { "hc-key": "ug-2768", "value": 291113 }, { "hc-key": "ug-3388", "value": 472629 }, { "hc-key": "ug-7062", "value": 183444 }, { "hc-key": "ug-7059", "value": 67005 }, { "hc-key": "ug-3389", "value": 483841 }, { "hc-key": "ug-7061", "value": 129149 }, { "hc-key": "ug-3390", "value": 314694 }, { "hc-key": "ug-7063", "value": 207343 }];
+            // Initiate the chart
+            var maps = new Highcharts.Map({
+                chart: {
+                    renderTo: 'mapcontainer',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                },
+                title: {
+                    text: ''
+                },
+
+                subtitle: {
+                    text: ''
+                },
+
+                mapNavigation: {
+                    enabled: true
+                },
+
+                colorAxis: {
+                    min: 0
+                },
+
+                series: [{
+                    data: data,
+                    mapData: Highcharts.maps['countries/ug/ug-all'],
+                    joinBy: 'hc-key',
+                    name: 'Random data',
+                    states: {
+                        hover: {
+                            color: '#BADA55'
+                        }
+                    }
+                }]
+            });
+        });
+
+
+
+    </script>
+}

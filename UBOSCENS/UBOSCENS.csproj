@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -178,24 +178,21 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdministrationController.cs" />
     <Compile Include="Controllers\Admin\DataImportController.cs" />
     <Compile Include="Controllers\Admin\FactsController.cs" />
     <Compile Include="Controllers\Admin\FeaturedStoriesController.cs" />
     <Compile Include="Controllers\Admin\FPController.cs" />
     <Compile Include="Controllers\Admin\FrontPageStatisticsController.cs" />
+    <Compile Include="Controllers\Admin\MapCollectionsController.cs" />
     <Compile Include="Controllers\Admin\RevisionsController.cs" />
     <Compile Include="Controllers\Admin\SectionsController.cs" />
     <Compile Include="Controllers\Admin\SubSectionsController.cs" />
     <Compile Include="Controllers\Admin\VisualizerStatisticsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\ReleaseCalendarController.cs" />
     <Compile Include="Controllers\StoriesController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
-    <Compile Include="Controllers\UBOSDMController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -321,10 +318,13 @@
     <Content Include="Content\Images\bg_header.jpg" />
     <Content Include="Content\Images\bg_m.jpg" />
     <Content Include="Content\Images\bg_u.jpg" />
+    <Content Include="Content\Images\b_mob.png" />
+    <Content Include="Content\Images\b_web.png" />
     <Content Include="Content\Images\icons\bar.png" />
     <Content Include="Content\Images\icons\heat_map.png" />
     <Content Include="Content\Images\icons\line_chart.png" />
     <Content Include="Content\Images\icons\scatter_plots.png" />
+    <Content Include="Content\Images\icons\up_icon.png" />
     <Content Include="Content\Images\i_1.jpg" />
     <Content Include="Content\Images\i_2.jpg" />
     <Content Include="Content\Images\i_3.jpg" />
@@ -334,10 +334,13 @@
     <Content Include="Content\img\2.jpg" />
     <Content Include="Content\img\3.jpg" />
     <Content Include="Content\img\4.jpg" />
+    <Content Include="Content\img\female_ico.png" />
     <Content Include="Content\img\header-logo.png" />
     <Content Include="Content\img\header_logo.png" />
+    <Content Include="Content\img\icon_28803.png" />
     <Content Include="Content\img\img_chania2.jpg" />
     <Content Include="Content\img\img_flower2.jpg" />
+    <Content Include="Content\img\male_ico.png" />
     <Content Include="Content\img\mid-1.jpg" />
     <Content Include="Content\img\mid-2.png" />
     <Content Include="Content\img\people.png" />
@@ -349,6 +352,7 @@
     <Content Include="Content\jqBootstrapValidation.js" />
     <Content Include="Content\jquery.dynatable.css" />
     <Content Include="Content\jquery.js" />
+    <Content Include="Content\jquery.searchable.js" />
     <Content Include="Content\JQueryMobile.css" />
     <Content Include="Content\JQueryMobile.js" />
     <Content Include="Content\JSelect.js" />
@@ -357,7 +361,7 @@
     <Content Include="Content\quickselect.css" />
     <Content Include="Content\UGD44\boottree.js" />
     <Content Include="Content\UGD44\carousel.js" />
-    <Content Include="Content\UGD44\mapdata.txt" />
+    <Content Include="Content\UGD44\map_data.txt" />
     <Content Include="Content\UGD44\_ugdat.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -433,6 +437,17 @@
     <Content Include="Views\DataImport\MapView.cshtml" />
     <Content Include="Views\DataImport\CaptureDistrict.cshtml" />
     <Content Include="Uploads\DistrictImport\DDistrictImport.xlsx" />
+    <Content Include="Views\DataImport\ScrapPage.cshtml" />
+    <Content Include="Views\Shared\NoLayout.cshtml" />
+    <Content Include="Views\Shared\_LayoutMap.cshtml" />
+    <Content Include="Views\DataImport\DistrictProfile.cshtml" />
+    <Content Include="Views\DataImport\ListDistricts.cshtml" />
+    <Content Include="Uploads\DistrictImport\districts.file" />
+    <Content Include="Views\MapCollections\Create.cshtml" />
+    <Content Include="Views\MapCollections\Delete.cshtml" />
+    <Content Include="Views\MapCollections\Details.cshtml" />
+    <Content Include="Views\MapCollections\Edit.cshtml" />
+    <Content Include="Views\MapCollections\Index.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -447,22 +462,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layouts.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -538,6 +539,7 @@
     <Content Include="Views\VisualizerStatistics\Edit.cshtml" />
     <Content Include="Views\VisualizerStatistics\Index.cshtml" />
     <Content Include="Views\DataImport\SparkLine.cshtml" />
+    <Content Include="Views\Shared\_NoLayoutMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -619,16 +621,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>12659</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:12689/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

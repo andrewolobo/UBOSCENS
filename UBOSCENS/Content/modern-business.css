@@ -18,7 +18,9 @@ body {
 }
 
 .img-portfolio {
-    margin-bottom: 30px;
+        margin-bottom: 30px;
+    /* text-align: center; */
+    margin: 0 auto;
 }
 
 .img-hover:hover {
@@ -67,9 +69,11 @@ max-height: 384px;
 background: #DD4E0C;
     color: #FFF;
     font-size: 18px;
-    margin-top: 20px;
-    margin: 0 auto;
+    /* margin-top: 20px; */
+    /* margin: 0 auto; */
+    margin-left: 18%;
     text-align: center;
+    margin-bottom: 13px;
 }
 
 #counter-2 p {
@@ -174,6 +178,18 @@ box-shadow: none;
 }
 
 
+.well .list-group {
+    padding-left: 0;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.well ::-webkit-scrollbar {
+ display: none;
+}
+
+
 .panel-body .btn {
   background: #487BC0;
   color: #FFF;
@@ -265,7 +281,7 @@ overflow: hidden;
 }
 
 .sub-report-wrapper li a {
-  background: #0080CC ! important;
+  background: #F73B08 ! important;
   padding: 10px;
   margin-bottom: 10px;
   width: 100%;
@@ -273,7 +289,7 @@ overflow: hidden;
 }
 
 .sub-report-wrapper li  {
-  background: #0080CC ! important;
+  background: #F73B08  ! important;
   padding: 10px;
   margin-bottom: 10px;
   width: 100%;
@@ -324,7 +340,7 @@ overflow: hidden;
 }
 
 .report-details table tr {
-  background:#C0DFF0;
+  background:white;
   border-bottom: 1px solid #FFF;
   padding: 10px;
 }
@@ -340,14 +356,16 @@ overflow: hidden;
   color: #000;
   font-weight: 500;
 }
-
 .report-details table tbody tr:first-child p {
 
-color: #FFF;
-}
+color: #F73B08;
 
+font-weight: bold;
+
+line-height: 1.2;
+}
 .report-details table tr:first-child {
-background: #5A5A5A;
+background: white;
 color: #FFF;
 padding:0px;
 }
@@ -365,7 +383,7 @@ color: #000 ! important;
 
 .report-details table tr td table tbody tr:first-child p {
 
-color: #FFF ! important;
+color: # ! important;
 
 }
 

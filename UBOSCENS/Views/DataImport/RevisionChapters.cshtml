@@ -1,13 +1,269 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "RevisionChapters";
+    Layout = "~/Views/Shared/NoLayout.cshtml";
 }
+@section styles{
+    <style>
+        .box {
+            background: ghostWhite;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            background-clip: padding-box;
+            padding: 0 20px 20px 20px;
+            min-height: 340px;
+        }
 
-<h4>2014 Census Report</h4>
+            .box:hover {
+                border: 2px solid #525C7A;
+            }
 
-<h5>Navigation Page</h5>
-@foreach (var chapter in ViewBag.chapters)
-{
-    <a href="#">@chapter.Title</a>
+            .box span.box-title {
+                color: #fff;
+                font-size: 24px;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+
+            .box .box-content {
+                padding: 16px;
+                border-radius: 0 0 2px 2px;
+                background-clip: padding-box;
+                box-sizing: border-box;
+            }
+
+                .box .box-content p {
+                    color: #515c66;
+                    text-transform: none;
+                }
+
+        .calendar {
+            margin: .25em 10px 10px 0;
+            padding-top: 5px;
+            float: left;
+            width: 80px;
+            background: #ededef;
+            background: -webkit-gradient(linear,left top,left bottom,from(#ededef),to(#ccc));
+            background: -moz-linear-gradient(top,#ededef,#ccc);
+            font: bold 30px/60px Arial Black,Arial,Helvetica,sans-serif;
+            text-align: center;
+            color: #000;
+            text-shadow: #fff 0 1px 0;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            position: relative;
+            -moz-box-shadow: 0 2px 2px #888;
+            -webkit-box-shadow: 0 2px 2px #888;
+            box-shadow: 0 2px 2px #888;
+        }
+
+            .calendar em {
+                display: block;
+                font: normal bold 11px/30px Arial,Helvetica,sans-serif;
+                color: #fff;
+                text-shadow: #00365a 0 -1px 0;
+                background: #04599a;
+                background: -webkit-gradient(linear,left top,left bottom,from(#04599a),to(#00365a));
+                background: -moz-linear-gradient(top,#04599a,#00365a);
+                -moz-border-radius-bottomright: 3px;
+                -webkit-border-bottom-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+                -moz-border-radius-bottomleft: 3px;
+                -webkit-border-bottom-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+                border-top: 1px solid #00365a;
+            }
+
+            .calendar:before, .calendar:after {
+                content: '';
+                float: left;
+                position: absolute;
+                top: 5px;
+                width: 8px;
+                height: 8px;
+                background: #111;
+                z-index: 1;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                -moz-box-shadow: 0 1px 1px #fff;
+                -webkit-box-shadow: 0 1px 1px #fff;
+                box-shadow: 0 1px 1px #fff;
+            }
+
+            .calendar:before {
+                left: 11px;
+            }
+
+            .calendar:after {
+                right: 11px;
+            }
+
+            .calendar em:before, .calendar em:after {
+                content: '';
+                float: left;
+                position: absolute;
+                top: -5px;
+                width: 4px;
+                height: 14px;
+                background: #dadada;
+                background: -webkit-gradient(linear,left top,left bottom,from(#f1f1f1),to(#aaa));
+                background: -moz-linear-gradient(top,#f1f1f1,#aaa);
+                z-index: 2;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+                border-radius: 2px;
+            }
+
+            .calendar em:before {
+                left: 13px;
+            }
+
+            .calendar em:after {
+                right: 13px;
+            }
+
+        #H1_1 {
+            box-sizing: border-box;
+            clear: both;
+            color: rgb(80, 80, 80);
+            height: 70.9091px;
+            width: 513.807px;
+            column-rule-color: rgb(80, 80, 80);
+            perspective-origin: 256.903px 35.4545px;
+            transform-origin: 256.903px 35.4545px;
+            border: 0px none rgb(80, 80, 80);
+            font: normal normal bold normal 36px / 36px Ubuntu, sans-serif;
+            margin: 0px 0px 10px;
+            outline: rgb(80, 80, 80) none 0px;
+        }
+        /*#H1_1*/
+
+
+        #custom-search-input {
+            margin: 0;
+            margin-top: 10px;
+            padding: 0;
+        }
+
+            #custom-search-input .search-query {
+                padding-right: 3px;
+                padding-right: 4px \9;
+                padding-left: 3px;
+                padding-left: 4px \9;
+                /* IE7-8 doesn't have border-radius, so don't indent the padding */
+                margin-bottom: 0;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+            }
+
+            #custom-search-input button {
+                border: 0;
+                background: none;
+                /** belows styles are working good */
+                padding: 2px 5px;
+                margin-top: 2px;
+                position: relative;
+                left: -28px;
+                /* IE7-8 doesn't have border-radius, so don't indent the padding */
+                margin-bottom: 0;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                color: #D9230F;
+            }
+
+        .search-query:focus + button {
+            z-index: 3;
+        }
+    </style>
+
 }
+@*<h1 id="H1_1">
+        2014 Census Report
+    </h1>*@
+<div class="container">
+    <div style="padding-bottom:10px" class="row">
 
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <div class="col-lg-3">
+                    <form action="/DataImport/SearchResults" method="get">
+                        <div class="input-group custom-search-form">
+                            <input name="search" type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    Search
+                                </button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-report-wrapper container">
+
+    @foreach (var chapter in ViewBag.chapters)
+    {
+
+        <ul class="sub-report-wrapper">
+            <li><a href="@chapter.Title">@chapter.Title</a></li>
+            <ul>
+                @foreach (var subchapter in chapter.SubChapters)
+                {
+
+                    <li><a href="@subchapter.Title">@subchapter.Title</a></li>
+
+                }
+            </ul>
+        </ul>
+
+        @*if (chapter.Title != "(Untitled)")
+            {
+                <ul class="sub-report-wrapper">
+                    <li><a href="@chapter.Title">@chapter.Title.Split(':')[1]</a></li>
+                    <ul>
+                        @foreach (var subchapter in chapter.SubChapters)
+                        {
+                            if (subchapter.Title != "(Untitled)")
+                            {
+                                <li><a href="@subchapter.Title">@subchapter.Title</a></li>
+                            }
+                        }
+                    </ul>
+                </ul>
+            }*@
+
+    }
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function (e) {
+            $("a").on("click", function (e) {
+                e.preventDefault();
+                if ($(this).attr("href").charAt(0) != "/") {
+                    window.location = "/DataImport/getContent/?chaptername=" + $(this).attr("href")
+                } else {
+                    window.location = $(this).attr("href");
+                }
+
+            })
+            $("#search").keypress(function(e) {
+                if (e.which === 13) {
+                    Window.href = "/DataImport/SearchResults?search=" + $(this).val();;
+                }
+                else {
+                    console.log(e.which);
+                }
+            })
+        });
+
+
+    </script>
+}

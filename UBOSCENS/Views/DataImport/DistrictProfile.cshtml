@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "DistrictProfile";
-    //Layout = "~/Views/Shared/NoLayout.cshtml";
+    Layout = "~/Views/Shared/NoLayout.cshtml";
 }
 
 @section styles{
@@ -1851,6 +1851,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js"></script>
     <script type="text/javascript" src="http://cdn.uriit.ru/jsPDF/libs/adler32cs.js/adler32cs.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+    <script src="~/Content/jquery.searchable.js"></script>
     <script>
         $(function () {
             var getUrlParameter = function getUrlParameter(sParam) {
@@ -1908,6 +1909,17 @@
                 doc.save('sample-file.pdf');
             });
 
+            $('#dist').searchable({
+                searchField: '#searchfield',
+                selector: '.search',
+                childSelector: '.list-group-item',
+                show: function (elem) {
+                    elem.slideDown(100);
+                },
+                hide: function (elem) {
+                    elem.slideUp(100);
+                }
+            })
 
             // Initiate the chart
 
@@ -1918,13 +1930,45 @@
 <input id="geojson" hidden value='{"title":"Uganda","version":"1.1.2","type":"FeatureCollection","copyright":"Copyright (c) 2015 Highsoft AS, Based on data from Natural Earth","copyrightShort":"Natural Earth","copyrightUrl":"http://www.naturalearthdata.com","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG:32636"}},"hc_transform":null,"features":[{"type":"Feature","id":"UG.1690","properties":{"hc_group":null,"hc_middle_x":0,"hc_middle_y":0,"hc_key":null,"hc_a2":null,"labelrank":"7","hasc":"UG.MI","alt_name":null,"woe_id":null,"sub_region":null,"fips":"UG89","postal_code":null,"name":"Mpigi","country":"Uganda","type_en":null,"region":"Central","longitude":"32.0899","woe_name":"Mpigi","woe_label":null,"type":"District"},"geometry":{"type":"Polygon","coordinates":[[[3579,1565],[3473,1740],[3426,1792],[3561,1860],[3681,1952],[3752,2028],[3851,2066],[3949,2050],[4124,2159],[4217,2240],[4211,2316],[4218,2533],[4208,2635],[4411,2635],[4547,2493],[4516,2311],[4464,2203],[4390,2156],[4350,2075],[4237,2011],[4218,1958],[4139,1901],[4132,1789],[4075,1832],[4102,1760],[4088,1697],[4029,1668],[3957,1686],[3850,1737],[3753,1678],[3821,1662],[3837,1617],[3693,1643],[3579,1565]]]}}]}' />
 <div id="target" class="row" style="background-color:white;margin-left:0px;margin-right:0px">
     @*<div class="row" style="margin-left: 86%;"><a id="A_1">Export to PDF</a></div>*@
+
+    <div class="col-md-6" style="margin-left:10px;margin-top:10px">
+        <div class="dual-list list-left">
+            <div class="well text-right" style="background-color:lightgrey">
+                <div class="row">
+                    <div class="col-md-10" style="margin-bottom: 13px;">
+                        <div class="input-group">
+                            <span class="input-group-addon glyphicon glyphicon-search"></span>
+                            <input id="searchfield" type="text" name="SearchDualList" class="form-control" placeholder="search" />
+                        </div>
+                    </div>
+                </div>
+                <div id="dist">
+                    <ul class="list-group">
+                        @foreach (var item in ViewBag.districts)
+                        {
+                            <div class="search">
+                                <li class="list-group-item"><a href="/DataImport/DistrictProfile?district=@item" >@item</a></li>
+                            </div>
+
+
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        @*<div id="container"></div>*@@*<div style="margin-left: 86%;"><a id="A_1">Export to PDF</a></div>*@
+    </div>
+
     <div class="col-md-5" style="margin:20px">
         <table id="TABLE_1">
             <tbody id="TBODY_2">
                 <tr id="TR_3">
                     <td id="TD_8">
                         <div id="DIV_5">
-                            <img src="~/Content/img/icon_28803.png" alt="World Bank" id="IMG_6" />
+                            <img src="~/Content/img/district_ico.png" alt="World Bank" id="IMG_6" />
                             <div id="DIV_7">
                                 District Total
                             </div>
@@ -1944,7 +1988,7 @@
                         <div class="row" style="margin-left: -134px;">
                             <div class="col-md-5">
                                 <div id="DIV_5">
-                                    <img src="~/Content/img/icon_28803.png" alt="World Bank" id="IMG_6" />
+                                    <img src="~/Content/img/male_icos.png" alt="World Bank" id="IMG_6" />
                                     <div id="DIV_7">
                                         Male Population
                                     </div>
@@ -1958,7 +2002,7 @@
                             </div>
                             <div class="col-md-5">
                                 <div id="DIV_5">
-                                    <img src="~/Content/img/icon_28803.png" alt="World Bank" id="IMG_6" />
+                                    <img src="~/Content/img/female_ico.png" alt="World Bank" id="IMG_6" />
                                     <div id="DIV_7">
                                         Female Population
                                     </div>
@@ -1977,7 +2021,6 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-6" style="margin-left:10px;margin-top:10px"><div id="container"></div>@*<div style="margin-left: 86%;"><a id="A_1">Export to PDF</a></div>*@</div>
 
     <div class="row">
         <div id="DIV_1" style="padding:20px">

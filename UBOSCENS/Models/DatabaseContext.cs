@@ -32,6 +32,8 @@ namespace UBOSCENS.Models
         public System.Data.Entity.DbSet<UBOSCENS.Models.VisualizerStatistics> VStats { get; set; }
         public System.Data.Entity.DbSet<UBOSCENS.Models.MapCollection> MapCollection { get; set; }
         public System.Data.Entity.DbSet<UBOSCENS.Models.Events> Events { get; set; }
+        public System.Data.Entity.DbSet<UBOSCENS.Models.FPPageStats> FPStats { get; set; }
+        public System.Data.Entity.DbSet<UBOSCENS.Models.FPSideStats> FPSidestats { get; set; }
         
 
     }

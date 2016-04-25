@@ -23,6 +23,7 @@ namespace UBOSCENS.Controllers
             DatabaseContext db = new DatabaseContext();
             DataFunctions d = new DataFunctions();
             var statList = db.VStats.Select(x => x).Take(3).ToList();
+            ViewBag.sidestats = db.FPSidestats.Select(x => x).Take(4);
             foreach (var stat in statList)
             {
                 stat.data = d.getGraph((JsonConvert.DeserializeObject<Indicator>(stat.data)).Tables.First().Categorization.First());

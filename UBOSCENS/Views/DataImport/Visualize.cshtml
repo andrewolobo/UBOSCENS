@@ -7,7 +7,7 @@
 <input id="data" hidden value='@Html.Raw(ViewBag.table)' />
 <input id="identifier" hidden value="@ViewBag.identifier" />
 <input id="graphdata" hidden value='@Html.Raw(ViewBag.graph)' />
-<div class="btn-group">
+<div class="btn-group hide">
     <button type="button" class="btn btn-primary dropdown-toggle" style=" margin-left: -16px; margin-bottom: 10px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Graphing Options <span class="caret"></span>
     </button>
@@ -20,13 +20,51 @@
 
     </ul>
 </div>
-<select id="picker" class="selectpicker bg-primary" style="margin-top: -11px;" multiple>
-    @foreach (var item in ViewBag.selections)
-    {
-        <option selected>@item</option>
-    }
-</select>
 
+<div class="row well" style="background-color:white;">
+    <div class="btn-group">
+        <button class="btn btns btn-default btn-sm dropdown-toggle" type="button" id="line" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" border-radius: 0px;">
+            <i class="fa fa-line-chart"></i>
+        </button>
+    </div>
+    <div class="btn-group">
+        <button class="btn btns btn-default btn-sm dropdown-toggle" type="button" id="column" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" border-radius: 0px;">
+            <i class="fa fa-bar-chart"></i>
+        </button>
+    </div>
+    <div class="btn-group">
+        <button class="btn btns btn-default btn-sm dropdown-toggle" type="button" id="scatter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" border-radius: 0px;">
+            Scatter Graph
+        </button>
+    </div>
+    <div class="btn-group">
+        <button class="btn btns btn-default btn-sm dropdown-toggle" type="button" id="heatmap" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" border-radius: 0px;">
+            Heat Map
+        </button>
+    </div>
+    <div class="btn-group">
+        <button class="btn btns btn-default btn-sm dropdown-toggle" type="button" id="pie" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" border-radius: 0px;">
+            <i class="fa fa-pie-chart"></i>
+        </button>
+    </div>
+
+    <div class="btn-group">
+        <select id="picker" class="selectpicker bg-primary" style="margin-top: -11px;" multiple>
+            @foreach (var item in ViewBag.selections)
+            {
+                <option selected>@item</option>
+            }
+        </select>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="showTable" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style=" border-radius: 0px;">
+            <i class="fa fa-table"></i>
+
+        </button>
+    </div>
+
+
+</div>
 <div class="row hide" style=" z-index: 900; position: relative;">
     <div class="wrap-select">
         <div id="Revision" class="wrapper-dropdown-3">
@@ -59,7 +97,7 @@
     <div class="row" style="width:40%;padding-bottom:15px;">
 
     </div>
-    <div class="row" style=" margin-top: 0px; margin-right: 19px; margin-left: -22px;">
+    <div class="row" id="tabl" style=" margin-top: 0px; margin-right: 19px; margin-left: -22px;">
         <table id="table" class="table table-bordered" style=" background: #333;    margin: 20px;">
             <thead>
                 <tr style="color:white!important">
@@ -80,6 +118,18 @@
 @section scripts
 {
     <script>
+        $("#tabl").hide();
+        $("#showTable").on("click", function (e) {
+            if (!$("#tabl").is(":visible")) {
+                $("#tabl").show();
+                $("#container").hide()
+                $(this).html("Show Graph");
+            } else if ($("#tabl").is(":visible")) {
+                $("#tabl").hide();
+                $("#container").show()
+                $(this).html("Show Table");
+            }
+        })
         var jellybeans = "";
         function graphOut(data) {
             data = JSON.parse(data);
@@ -160,202 +210,63 @@
         }, null, document.getElementsByTagName('head')[0]);
 
         Highcharts.theme = {
-            colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
-               "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+            colors: ["#7cb5ec", "#f7a35c", "#90ee7e", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+                "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
             chart: {
-                backgroundColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-                    stops: [
-                       [0, '#2a2a2b'],
-                       [1, '#3e3e40']
-                    ]
-                },
+                backgroundColor: null,
                 style: {
-                    fontFamily: "'Unica One', sans-serif"
-                },
-                plotBorderColor: '#606063'
+                    fontFamily: "Dosis, sans-serif"
+                }
             },
             title: {
                 style: {
-                    color: '#E0E0E3',
-                    textTransform: 'uppercase',
-                    fontSize: '20px'
-                }
-            },
-            subtitle: {
-                style: {
-                    color: '#E0E0E3',
+                    fontSize: '16px',
+                    fontWeight: 'bold',
                     textTransform: 'uppercase'
                 }
             },
+            tooltip: {
+                borderWidth: 0,
+                backgroundColor: 'rgba(219,219,216,0.8)',
+                shadow: false
+            },
+            legend: {
+                itemStyle: {
+                    fontWeight: 'bold',
+                    fontSize: '13px'
+                }
+            },
             xAxis: {
-                gridLineColor: '#707073',
+                gridLineWidth: 1,
                 labels: {
                     style: {
-                        color: '#E0E0E3'
-                    }
-                },
-                lineColor: '#707073',
-                minorGridLineColor: '#505053',
-                tickColor: '#707073',
-                title: {
-                    style: {
-                        color: '#A0A0A3'
-
+                        fontSize: '12px'
                     }
                 }
             },
             yAxis: {
-                gridLineColor: '#707073',
-                labels: {
-                    style: {
-                        color: '#E0E0E3'
-                    }
-                },
-                lineColor: '#707073',
-                minorGridLineColor: '#505053',
-                tickColor: '#707073',
-                tickWidth: 1,
+                minorTickInterval: 'auto',
                 title: {
                     style: {
-                        color: '#A0A0A3'
+                        textTransform: 'uppercase'
                     }
-                }
-            },
-            tooltip: {
-                backgroundColor: 'rgba(0, 0, 0, 0.85)',
-                style: {
-                    color: '#F0F0F0'
+                },
+                labels: {
+                    style: {
+                        fontSize: '12px'
+                    }
                 }
             },
             plotOptions: {
-                series: {
-                    dataLabels: {
-                        color: '#B0B0B3'
-                    },
-                    marker: {
-                        lineColor: '#333'
-                    }
-                },
-                boxplot: {
-                    fillColor: '#505053'
-                },
                 candlestick: {
-                    lineColor: 'white'
-                },
-                errorbar: {
-                    color: 'white'
-                }
-            },
-            legend: {
-                itemStyle: {
-                    color: '#E0E0E3'
-                },
-                itemHoverStyle: {
-                    color: '#FFF'
-                },
-                itemHiddenStyle: {
-                    color: '#606063'
-                }
-            },
-            credits: {
-                style: {
-                    color: '#666'
-                }
-            },
-            labels: {
-                style: {
-                    color: '#707073'
+                    lineColor: '#404048'
                 }
             },
 
-            drilldown: {
-                activeAxisLabelStyle: {
-                    color: '#F0F0F3'
-                },
-                activeDataLabelStyle: {
-                    color: '#F0F0F3'
-                }
-            },
 
-            navigation: {
-                buttonOptions: {
-                    symbolStroke: '#DDDDDD',
-                    theme: {
-                        fill: '#505053'
-                    }
-                }
-            },
+            // General
+            background2: '#F0F0EA'
 
-            // scroll charts
-            rangeSelector: {
-                buttonTheme: {
-                    fill: '#505053',
-                    stroke: '#000000',
-                    style: {
-                        color: '#CCC'
-                    },
-                    states: {
-                        hover: {
-                            fill: '#707073',
-                            stroke: '#000000',
-                            style: {
-                                color: 'white'
-                            }
-                        },
-                        select: {
-                            fill: '#000003',
-                            stroke: '#000000',
-                            style: {
-                                color: 'white'
-                            }
-                        }
-                    }
-                },
-                inputBoxBorderColor: '#505053',
-                inputStyle: {
-                    backgroundColor: '#333',
-                    color: 'silver'
-                },
-                labelStyle: {
-                    color: 'silver'
-                }
-            },
-
-            navigator: {
-                handles: {
-                    backgroundColor: '#666',
-                    borderColor: '#AAA'
-                },
-                outlineColor: '#CCC',
-                maskFill: 'rgba(255,255,255,0.1)',
-                series: {
-                    color: '#7798BF',
-                    lineColor: '#A6C7ED'
-                },
-                xAxis: {
-                    gridLineColor: '#505053'
-                }
-            },
-
-            scrollbar: {
-                barBackgroundColor: '#808083',
-                barBorderColor: '#808083',
-                buttonArrowColor: '#CCC',
-                buttonBackgroundColor: '#606063',
-                buttonBorderColor: '#606063',
-                rifleColor: '#FFF',
-                trackBackgroundColor: '#404043',
-                trackBorderColor: '#404043'
-            },
-
-            // special colors for some of the
-            legendBackgroundColor: 'rgba(0, 0, 0, 0.5)',
-            background2: '#505053',
-            dataLabelsColor: '#B0B0B3',
-            textColor: '#C0C0C0',
-            contrastTextColor: '#F0F0F3',
-            maskColor: 'rgba(255,255,255,0.3)'
         };
 
         // Apply the theme
@@ -479,7 +390,7 @@
                 });
             }
 
-            $(".selections").on("click", function (e) {
+            $(".btns").on("click", function (e) {
                 console.log("Changed Option");
                 graphType($(this).attr('id'));
             })

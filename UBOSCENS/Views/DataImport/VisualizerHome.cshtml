@@ -1,28 +1,326 @@
 ﻿@{
     ViewBag.Title = "VisualizerHome";
+    Layout = "~/Views/Shared/_NoLayoutMap.cshtml";
 }
-<div class="container main-report-wrapper" style="background-color:white;padding: 67px;">
+@section styles{
+    <style>
+        .dual-list .list-group {
+            margin-top: 8px;
+        }
 
+        .list-left li, .list-right li {
+            cursor: pointer;
+        }
 
+        .list-arrows {
+            padding-top: 100px;
+        }
 
-        @{var i = 0;}
-        @foreach (var list in ViewBag.stats)
-        {
-            <div class="row grid-divider">
-                <div class="sub-report-wrapper" style="padding: 20px;">
-                    <div class="col-padding">
-                        <h3> @list.Title</h3>
-                        <p>@list.Description</p>
-                        <button id="@list.id" class="btn btn-sm btn-default"><i class="fa fa-fw fa-eye"></i>Show</button>
+            .list-arrows button {
+                margin-bottom: 20px;
+            }
+
+        .well {
+            background-color: #f5f5f5;
+            padding: 4px;
+        }
+
+        .list-group {
+            overflow: hidden;
+            border-left: 1px solid rgb(221, 221, 221);
+            border-right: 1px solid rgb(221, 221, 221);
+        }
+
+        .list-group-item:first-child, .list-group-item:last-child {
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            overflow: hidden;
+        }
+
+        .list-group-item {
+            border-left: 0px solid rgb(221, 221, 221);
+            border-right: 0px solid rgb(221, 221, 221);
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+        }
+
+            .list-group-item > .show-menu {
+                position: absolute;
+                height: 100%;
+                width: 24px;
+                top: 0px;
+                right: 0px;
+                background-color: rgba(51, 51, 51, 0.2);
+                cursor: pointer;
+                -webkit-transition: all 0.5s ease-in-out;
+                -moz-transition: all 0.5s ease-in-out;
+                -o-transition: all 0.5s ease-in-out;
+                -ms-transition: all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
+            }
+
+                .list-group-item > .show-menu > span {
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -7px;
+                    padding: 0px 5px;
+                }
+
+        .list-group-submenu {
+            position: absolute;
+            top: 0px;
+            right: -88px;
+            white-space: nowrap;
+            list-style: none;
+            padding-left: 0px;
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+        }
+
+            .list-group-submenu .list-group-submenu-item {
+                float: right;
+                white-space: nowrap;
+                display: block;
+                padding: 10px 15px;
+                margin-bottom: -1px;
+                background-color: rgb(51, 51, 51);
+                color: rgb(235, 235, 235);
+            }
+
+        .list-group-item.open {
+            margin-left: -88px;
+        }
+
+            .list-group-item.open > .show-menu {
+                right: 88px;
+            }
+
+            .list-group-item.open .list-group-submenu {
+                right: 0px;
+            }
+
+        .list-group-submenu .list-group-submenu-item.primary {
+            color: rgb(255, 255, 255);
+            background-color: rgb(50, 118, 177);
+        }
+
+        .list-group-submenu .list-group-submenu-item.success {
+            color: rgb(255, 255, 255);
+            background-color: rgb(92, 184, 92);
+        }
+
+        .list-group-submenu .list-group-submenu-item.info {
+            color: rgb(255, 255, 255);
+            background-color: rgb(57, 179, 215);
+        }
+
+        .list-group-submenu .list-group-submenu-item.warning {
+            color: rgb(255, 255, 255);
+            background-color: rgb(240, 173, 78);
+        }
+
+        .list-group-submenu .list-group-submenu-item.danger {
+            color: rgb(255, 255, 255);
+            background-color: rgb(217, 83, 79);
+        }
+
+        #P_1 {
+            color: rgb(51, 51, 51);
+            height: 38px;
+            width: 611px;
+            column-rule-color: rgb(51, 51, 51);
+            perspective-origin: 305.5px 19px;
+            transform-origin: 305.5px 19px;
+            border: 0px none rgb(51, 51, 51);
+            font: normal normal normal normal 13px / 19.5px 'Open Sans', Arial, 'DejaVu Sans', sans-serif;
+            margin: 0px 0px 39px;
+            outline: rgb(51, 51, 51) none 0px;
+        }
+        /*#P_1*/
+        #H1_1 {
+            color: rgb(51, 51, 51);
+            height: 43px;
+            width: 762.063px;
+            column-rule-color: rgb(51, 51, 51);
+            perspective-origin: 381.031px 21.5px;
+            transform-origin: 381.031px 21.5px;
+            border: 0px none rgb(51, 51, 51);
+            font: normal normal normal normal 36px / 43.2px Oswald, Calibri, Arial, 'DejaVu Sans', sans-serif;
+            margin: 0px 0px 18px;
+            outline: rgb(51, 51, 51) none 0px;
+        }
+        /*#H1_1*/
+    </style>
+}
+@*<div class="row well">
+        <div class="col-md-12" style="min-height:300px;">
+            <br />
+            <div class="row">
+                <div class="dual-list list-left col-md-4">
+                    <div class="well text-right">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon glyphicon glyphicon-search"></span>
+                                    <input type="text" name="SearchDualList" class="form-control" placeholder="search" />
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-group">
+                            @foreach (var item in ViewBag.list)
+                            {
+                                <li id="@item.id" class="list-group-item maphandler">@item.name</li>
+                            }
+                        </ul>
                     </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div id="mapcontainer"></div>
                 </div>
             </div>
 
-        }
+        </div>
+    </div>*@
 
+
+
+
+<div class="container" style="background-color:white;padding: 67px;">
+    <div class="row">
+        <div class="list-group col-md-3" style="padding-right: 0px;">
+            <span href="#" class="list-group-item" style="background-color: grey; color: WHITE;">
+                Categries
+            </span>
+            @foreach (var item in ViewBag.sections)
+            {
+                <a href="/DataImport/VisualizerHome/@item.id" class="list-group-item">
+                    <i class="fa fa-comment-o"></i> @item.Title
+                </a>
+            }
+
+        </div>
+        <div class="col-sm-9">
+            <ul class="list-group">
+                @foreach (var list in ViewBag.stats)
+                {
+                    <li class="list-group-item">
+                        @list.Title
+                        <ul class="list-group-submenu">
+                            <a href="/DataImport/Visualize/@list.id"><li class="list-group-submenu-item info"><span class="fa fa-fw fa-eye"></span></li></a>
+                            <a href=""><li class="list-group-submenu-item"><span class="glyphicon glyphicon-download-alt"></span></li></a>
+                        </ul>
+                    </li>
+
+                }
+            </ul>
+        </div>
+    </div>
 
 </div>
 @section scripts{
+
+    <script>
+        $(function () {
+            $('.list-group-item').on('mouseover', function (event) {
+                event.preventDefault();
+                $(this).closest('li').addClass('open');
+            });
+            $('.list-group-item').on('mouseout', function (event) {
+                event.preventDefault();
+                $(this).closest('li').removeClass('open');
+            });
+        });
+        $('li').on("click", function (e) {
+            console.log($(this, "li:first-child"));
+            $("li")
+        })
+        // Prepare demo data
+        var data = [{ "hc-key": "ug-7073", "value": 422771 }, { "hc-key": "ug-7067", "value": 151413 }, { "hc-key": "ug-7069", "value": 100840 }, { "hc-key": "ug-7074", "value": 89890 }, { "hc-key": "ug-7070", "value": 159922 }, { "hc-key": "ug-2595", "value": 54293 }, { "hc-key": "ug-7068", "value": 183232 }, { "hc-key": "ug-2754", "value": 1507080 }, { "hc-key": "ug-1679", "value": 368062 }, { "hc-key": "ug-2755", "value": 148218 }, { "hc-key": "ug-7072", "value": 214693 }, { "hc-key": "Luwero", "value": 456958 }, { "hc-key": "ug-7065", "value": 274953 }, { "hc-key": "ug-7066", "value": 93753 }, { "hc-key": "ug-3382", "value": 297004 }, { "hc-key": "ug-2760", "value": 328964 }, { "hc-key": "ug-1690", "value": 250548 }, { "hc-key": "ug-2759", "value": 684337 }, { "hc-key": "ug-1687", "value": 596804 }, { "hc-key": "ug-2761", "value": 197369 }, { "hc-key": "ug-2756", "value": 181799 }, { "hc-key": "ug-3381", "value": 516309 }, { "hc-key": "Ssembabule", "value": 252597 }, { "hc-key": "ug-2757", "value": 1997418 }, { "hc-key": "ug-2787", "value": 270928 }, { "hc-key": "ug-1684", "value": 207597 }, { "hc-key": "ug-7086", "value": 210173 }, { "hc-key": "ug-2780", "value": 382913 }, { "hc-key": "ug-7081", "value": 203600 }, { "hc-key": "Bukwo", "value": 89356 }, { "hc-key": "ug-7083", "value": 174508 }, { "hc-key": "ug-2781", "value": 323662 }, { "hc-key": "ug-2782", "value": 244153 }, { "hc-key": "ug-7078", "value": 323067 }, { "hc-key": "ug-1680", "value": 504197 }, { "hc-key": "ug-2744", "value": 471242 }, { "hc-key": "ug-1678", "value": 215026 }, { "hc-key": "ug-1683", "value": 236199 }, { "hc-key": "ug-1681", "value": 486319 }, { "hc-key": "ug-2775", "value": 105186 }, { "hc-key": "ug-2785", "value": 166231 }, { "hc-key": "ug-7082", "value": 202033 }, { "hc-key": "ug-1677", "value": 239268 }, { "hc-key": "ug-7084", "value": 93667 }, { "hc-key": "ug-7076", "value": 238020 }, { "hc-key": "ug-2779", "value": 353825 }, { "hc-key": "ug-2783", "value": 473239 }, { "hc-key": "ug-2778", "value": 488960 }, { "hc-key": "ug-7075", "value": 215442 }, { "hc-key": "ug-1685", "value": 252562 }, { "hc-key": "ug-7080", "value": 141919 }, { "hc-key": "ug-1688", "value": 386890 }, { "hc-key": "ug-7079", "value": 285903 }, { "hc-key": "ug-2777", "value": 242422 }, { "hc-key": "ug-1686", "value": 296833 }, { "hc-key": "ug-2784", "value": 517082 }, { "hc-key": "ug-2789", "value": 107966 }, { "hc-key": "ug-2745", "value": 225251 }, { "hc-key": "ug-7056", "value": 227792 }, { "hc-key": "ug-7054", "value": 227541 }, { "hc-key": "ug-1682", "value": 147166 }, { "hc-key": "ug-7058", "value": 105767 }, { "hc-key": "ug-7049", "value": 186696 }, { "hc-key": "ug-2763", "value": 368626 }, { "hc-key": "ug-2746", "value": 782077 }, { "hc-key": "ug-2766", "value": 183093 }, { "hc-key": "ug-2764", "value": 436345 }, { "hc-key": "ug-2788", "value": 167879 }, { "hc-key": "ug-7051", "value": 204048 }, { "hc-key": "ug-2747", "value": 206495 }, { "hc-key": "ug-7053", "value": 239327 }, { "hc-key": "ug-2786", "value": 181050 }, { "hc-key": "ug-2762", "value": 134379 }, { "hc-key": "ug-2765", "value": 408043 }, { "hc-key": "ug-2753", "value": 186134 }, { "hc-key": "ug-2790", "value": 103432 }, { "hc-key": "ug-2751", "value": 139012 }, { "hc-key": "ug-2791", "value": 156690 }, { "hc-key": "ug-7057", "value": 142224 }, { "hc-key": "ug-2750", "value": 396794 }, { "hc-key": "ug-2749", "value": 133506 }, { "hc-key": "ug-7055", "value": 104254 }, { "hc-key": "ug-2769", "value": 383644 }, { "hc-key": "ug-2767", "value": 178004 }, { "hc-key": "ug-2752", "value": 484822 }, { "hc-key": "ug-7048", "value": 240082 }, { "hc-key": "ug-7064", "value": 120720 }, { "hc-key": "ug-2748", "value": 113161 }, { "hc-key": "ug-2770", "value": 224387 }, { "hc-key": "ug-3383", "value": 234440 }, { "hc-key": "ug-2771", "value": 572986 }, { "hc-key": "ug-3386", "value": 249625 }, { "hc-key": "ug-3387", "value": 486360 }, { "hc-key": "ug-3392", "value": 528231 }, { "hc-key": "ug-2772", "value": 469236 }, { "hc-key": "ug-3385", "value": 414454 }, { "hc-key": "ug-3394", "value": 252144 }, { "hc-key": "ug-3384", "value": 694992 }, { "hc-key": "Kibaale", "value": 785088 }, { "hc-key": "Kiruhura", "value": 328077 }, { "hc-key": "ug-7052", "value": 266197 }, { "hc-key": "ug-3393", "value": 281705 }, { "hc-key": "ug-7060", "value": 281637 }, { "hc-key": "ug-2773", "value": 422204 }, { "hc-key": "ug-2768", "value": 291113 }, { "hc-key": "ug-3388", "value": 472629 }, { "hc-key": "ug-7062", "value": 183444 }, { "hc-key": "ug-7059", "value": 67005 }, { "hc-key": "ug-3389", "value": 483841 }, { "hc-key": "ug-7061", "value": 129149 }, { "hc-key": "ug-3390", "value": 314694 }, { "hc-key": "ug-7063", "value": 207343 }];
+        // Initiate the chart
+        var maps = new Highcharts.Map({
+            chart: {
+                renderTo: 'mapcontainer',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)'
+            },
+            title: {
+                text: ''
+            },
+
+            subtitle: {
+                text: ''
+            },
+
+            mapNavigation: {
+                enabled: true
+            },
+
+            colorAxis: {
+                min: 0
+            },
+
+            series: [{
+                data: data,
+                mapData: Highcharts.maps['countries/ug/ug-all'],
+                joinBy: 'hc-key',
+                name: 'Random data',
+                states: {
+                    hover: {
+                        color: '#BADA55'
+                    }
+                }
+            }]
+        });
+        $(".maphandler").on("click", function (e) {
+            console.log($(this).attr("id"));
+            $.post("/DataImport/ReturnMap/", { id: $(this).attr("id") }, function (data) {
+                console.log(data);
+                data = JSON.parse(data);
+                new Highcharts.Map({
+                    chart: {
+                        renderTo: 'mapcontainer',
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    title: {
+                        text: ''
+                    },
+
+                    subtitle: {
+                        text: ''
+                    },
+
+                    mapNavigation: {
+                        enabled: true
+                    },
+
+                    colorAxis: {
+                        min: 0
+                    },
+
+                    series: [{
+                        data: data,
+                        mapData: Highcharts.maps['countries/ug/ug-all'],
+                        joinBy: 'hc-key',
+                        name: 'Random data',
+                        states: {
+                            hover: {
+                                color: '#BADA55'
+                            }
+                        }
+                    }]
+                });
+            });
+        })
+    </script>
+
     <script>
         $(document).ready(function (e) {
             $(".btn").on("click", function (e) {
@@ -31,5 +329,4 @@
             })
         });
     </script>
-
 }

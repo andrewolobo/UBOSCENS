@@ -18,6 +18,20 @@ namespace UBOSCENS.Models
         public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
     }
+    public class FPSideStats
+    {
+        public Guid id { get; set; }
+        public String title { get; set; }
+        public String ratio { get; set; }
+        public String percentage { get; set; }
+    }
+    public class  FPPageStats{
+        public Guid id{get;set;}
+        public String name{get;set;}   
+        public String data{get;set;}
+        public String type { get; set; }
+        public bool Active{get;set;}
+    }
     public class Events
     {
         public Guid id { get; set; }
@@ -50,6 +64,7 @@ namespace UBOSCENS.Models
     public class VisualizerStatistics
     {
         public Guid id { get; set; }
+        public Guid sectionID { get; set; }
         public String Title { get; set; }
         public String Description { get; set; }
 

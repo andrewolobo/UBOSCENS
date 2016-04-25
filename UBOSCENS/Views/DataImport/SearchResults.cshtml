@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "SearchResults";
+    Layout = "~/Views/Shared/NoLayout.cshtml";
+}
+
+<div class="container">
+
+    <hgroup class="mb20">
+        <h1>Search Results:</h1>
+        <h2 class="lead"><strong class="text-danger">@ViewBag.results.Count</strong> Results Found</h2>
+    </hgroup>
+
+    <section class="col-xs-12 col-sm-6 col-md-12">
+        @foreach (KeyValuePair<string, string> item in ViewBag.dresults)
+        {
+            <article class="search-result row">
+                <div class="col-xs-12 col-sm-12 col-md-12 excerpet">
+                    <h6><a href="/DataImport/getContent/?chaptername=@item.Key" title="">@item.Key</a></h6>
+                    @*<p>@Html.Raw(item.Value)</p>*@
+                </div>
+                <span class="clearfix borda"></span>
+            </article>
+        }
+    </section>
+</div>

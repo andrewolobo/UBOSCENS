@@ -1,5 +1,7 @@
 ﻿@{
     ViewBag.Title = "Census Report";
+    Layout = "~/Views/Shared/NoLayout.cshtml";
+    
 }
 @section styles{
     <style>
@@ -150,22 +152,22 @@
         <div class="col-md-6 text-center">
             <div class="box">
                 <div class="box-content">
-                    <h1 class="tag-title">On Mobile</h1>
+                    <h1 class="tag-title">View Report</h1>
                     <hr />
                     <p>View the Census Report on Mobile, On the Go. Learn more about the 2014 National population and housing Census. </p>
                     <br />
-                    <a href=""><img><img style=" width: 66%;" src="~/Content/Images/b_mob.png" /></a>
+                    <a href="/DataImport/RevisionChapters"><img><img style=" width: 66%;" src="~/Content/Images/b_mob.png" /></a>
                 </div>
             </div>
         </div>
         <div class="col-md-6 text-center">
             <div class="box">
                 <div class="box-content">
-                    <h1 class="tag-title">via Web</h1>
+                    <h1 class="tag-title">Download</h1>
                     <hr />
                     <p>View The full Report through Your web-browser. Navigate through the Census Report PDF or download it for later.</p>
                     <br />
-                    <a href=""><img style=" width: 66%;" src="~/Content/Images/b_web.png" /></a>
+                    <a href="~/Downloads/Report.docx"><img style=" width: 66%;" src="~/Content/Images/b_web.png" /></a>
                 </div>
             </div>
         </div>

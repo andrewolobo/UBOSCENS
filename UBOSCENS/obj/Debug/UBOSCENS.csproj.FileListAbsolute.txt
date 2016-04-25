@@ -81,3 +81,8 @@ C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Linq
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\log4net.xml
 C:\Users\Andrew\Documents\Visual Studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.EventsTable.resources
 C:\Users\Andrew\Documents\Visual Studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.EventsActual.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.FPPageStats.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.FPStats2.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.sectionID.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.fpsidestats.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Debug\UBOSCENS.Migrations.fpsidestats1.resources

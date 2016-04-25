@@ -20,6 +20,7 @@ namespace UBOSCENS.Controllers.Admin
         // GET: VisualizerStatistics
         public ActionResult Index()
         {
+            ViewBag.section = db.Sections.Select(x => x).ToList();
             return View(db.VStats.ToList());
         }
 
@@ -41,6 +42,8 @@ namespace UBOSCENS.Controllers.Admin
         // GET: VisualizerStatistics/Create
         public ActionResult Create()
         {
+            DatabaseContext db = new DatabaseContext();
+            ViewBag.section = db.Sections.Select(x => x).ToList();
             return View();
         }
         public String CSVReader(String filename)
@@ -161,7 +164,7 @@ namespace UBOSCENS.Controllers.Admin
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Title,Description,data")] VisualizerStatistics visualizerStatistics, IEnumerable<HttpPostedFileBase> file)
+        public ActionResult Create([Bind(Include = "id,sectionID,Title,Description,data")] VisualizerStatistics visualizerStatistics, IEnumerable<HttpPostedFileBase> file)
         {
             var data = "";
             Debug.WriteLine(file.Count());
@@ -179,11 +182,12 @@ namespace UBOSCENS.Controllers.Admin
             }
             if (ModelState.IsValid)
             {
-                visualizerStatistics.id = Guid.NewGuid();
+                var id = Guid.NewGuid();
+                visualizerStatistics.id = id;
                 visualizerStatistics.data = data;
                 db.VStats.Add(visualizerStatistics);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Visualize/"+id, "DataImport");
             }
 
             return View(visualizerStatistics);
@@ -209,7 +213,7 @@ namespace UBOSCENS.Controllers.Admin
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Title,Description,data")] VisualizerStatistics visualizerStatistics)
+        public ActionResult Edit([Bind(Include = "id,sectionID,Title,Description,data")] VisualizerStatistics visualizerStatistics)
         {
             if (ModelState.IsValid)
             {

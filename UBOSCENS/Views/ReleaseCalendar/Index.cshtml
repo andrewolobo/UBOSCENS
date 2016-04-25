@@ -9,10 +9,10 @@
             <div style="height:300px;background-color:#CCCCCC">
                 <div class="panel status panel-success">
                     <div class="panel-heading" style="background-color: #4CAF50;">
-                        <h1 class="panel-title text-center">APR</h1>
+                        <h1 class="panel-title text-center">@(ViewBag.firstEvent.When.ToString("MMM").ToUpper())</h1>
                     </div>
                     <div class="panel-body text-center">
-                        <strong>2014 S&T Statistical Abstract</strong>
+                        <strong>@ViewBag.firstEvent.Name</strong>
                     </div>
                 </div>
                 @*<p>
@@ -38,7 +38,7 @@
                                     </p>
                                 </li>
                             }
-                            <li id="LI_6">
+                            @*<li id="LI_6">
                                 <h3 id="H3_7">
                                     <a href="/releases/provisionalanalysisof2015deathregistrationsinenglandandwales" id="A_8">Provisional analysis of 2015 death registrations in England and Wales</a>
                                 </h3>
@@ -85,7 +85,7 @@
                                 <p id="P_37">
                                     6 April 2016 <span id="SPAN_38">(confirmed)</span>
                                 </p>
-                            </li>
+                            </li>*@
                         </ul>
                     </ul>
                 </div>

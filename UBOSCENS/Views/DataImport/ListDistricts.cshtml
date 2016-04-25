@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "ListDistricts";
-    Layout = "~/Views/Shared/_LayoutMap.cshtml";
+    Layout = "~/Views/Shared/NoLayout.cshtml";
 }
 @section styles{
     <style>
@@ -26,36 +26,7 @@
         }
     </style>
 }
-<div class="row well">
-    <div class="col-md-12" style="min-height:300px;">
-        <br />
-        <div class="row">
-            <div class="dual-list list-left col-md-4">
-                <div class="well text-right">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <div class="input-group">
-                                <span class="input-group-addon glyphicon glyphicon-search"></span>
-                                <input type="text" name="SearchDualList" class="form-control" placeholder="search" />
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="list-group">
-                        @foreach (var item in ViewBag.list)
-                        {
-                            <li id="@item.id" class="list-group-item maphandler">@item.name</li>
-                        }
-                    </ul>
-                </div>
-            </div>
 
-            <div class="col-md-8">
-                <div id="mapcontainer"></div>
-            </div>
-        </div>
-
-    </div>
-</div>
 <div class="container-fluid">
     <div class="row">
         <div class="" style="margin-bottom: 29px;">

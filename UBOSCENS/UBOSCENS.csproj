@@ -175,13 +175,12 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\Admin\DataImportController.cs" />
     <Compile Include="Controllers\Admin\FactsController.cs" />
     <Compile Include="Controllers\Admin\FeaturedStoriesController.cs" />
     <Compile Include="Controllers\Admin\FPController.cs" />
+    <Compile Include="Controllers\Admin\FPSideStatsController.cs" />
     <Compile Include="Controllers\Admin\FrontPageStatisticsController.cs" />
     <Compile Include="Controllers\Admin\MapCollectionsController.cs" />
     <Compile Include="Controllers\Admin\RevisionsController.cs" />
@@ -273,10 +272,28 @@
     <Compile Include="Migrations\201604130848082_Events Actual.Designer.cs">
       <DependentUpon>201604130848082_Events Actual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604190925207_FPPageStats.cs" />
+    <Compile Include="Migrations\201604190925207_FPPageStats.Designer.cs">
+      <DependentUpon>201604190925207_FPPageStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604190926427_FPStats#2.cs" />
+    <Compile Include="Migrations\201604190926427_FPStats#2.Designer.cs">
+      <DependentUpon>201604190926427_FPStats#2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604211019305_sectionID.cs" />
+    <Compile Include="Migrations\201604211019305_sectionID.Designer.cs">
+      <DependentUpon>201604211019305_sectionID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604220912522_fpsidestats.cs" />
+    <Compile Include="Migrations\201604220912522_fpsidestats.Designer.cs">
+      <DependentUpon>201604220912522_fpsidestats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604220914042_fpsidestats1.cs" />
+    <Compile Include="Migrations\201604220914042_fpsidestats1.Designer.cs">
+      <DependentUpon>201604220914042_fpsidestats1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UBOSDM.cs" />
     <Compile Include="Models\UBOSModel.cs" />
@@ -342,6 +359,7 @@
     <Content Include="Content\img\2.jpg" />
     <Content Include="Content\img\3.jpg" />
     <Content Include="Content\img\4.jpg" />
+    <Content Include="Content\img\district_ico.png" />
     <Content Include="Content\img\female_ico.png" />
     <Content Include="Content\img\header-logo.png" />
     <Content Include="Content\img\header_logo.png" />
@@ -349,6 +367,7 @@
     <Content Include="Content\img\img_chania2.jpg" />
     <Content Include="Content\img\img_flower2.jpg" />
     <Content Include="Content\img\male_ico.png" />
+    <Content Include="Content\img\male_icos.png" />
     <Content Include="Content\img\mid-1.jpg" />
     <Content Include="Content\img\mid-2.png" />
     <Content Include="Content\img\people.png" />
@@ -367,6 +386,7 @@
     <Content Include="Content\kcounter.js" />
     <Content Include="Content\modern-business.css" />
     <Content Include="Content\quickselect.css" />
+    <Content Include="Content\stylesheet.css" />
     <Content Include="Content\UGD44\boottree.js" />
     <Content Include="Content\UGD44\carousel.js" />
     <Content Include="Content\UGD44\map_data.txt" />
@@ -413,6 +433,7 @@
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fav\manifest.json" />
+    <Content Include="Downloads\Report.docx" />
     <None Include="Properties\PublishProfiles\uboscens - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\uboscens - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
@@ -457,6 +478,17 @@
     <Content Include="Views\MapCollections\Edit.cshtml" />
     <Content Include="Views\MapCollections\Index.cshtml" />
     <Content Include="Views\DataImport\EventsAdd.cshtml" />
+    <Content Include="Views\DataImport\FPGraph.cshtml" />
+    <Content Include="Views\DataImport\ListFPGraph.cshtml" />
+    <Content Include="Views\DataImport\DistrictVisualizer.cshtml" />
+    <Content Include="Uploads\Epub\MainReport.epub" />
+    <Content Include="Uploads\Epub\RMVs.epub" />
+    <Content Include="Views\DataImport\SearchResults.cshtml" />
+    <Content Include="Views\FPSideStats\Create.cshtml" />
+    <Content Include="Views\FPSideStats\Delete.cshtml" />
+    <Content Include="Views\FPSideStats\Details.cshtml" />
+    <Content Include="Views\FPSideStats\Edit.cshtml" />
+    <Content Include="Views\FPSideStats\Index.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -620,6 +652,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604130848082_Events Actual.resx">
       <DependentUpon>201604130848082_Events Actual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604190925207_FPPageStats.resx">
+      <DependentUpon>201604190925207_FPPageStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604190926427_FPStats#2.resx">
+      <DependentUpon>201604190926427_FPStats#2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604211019305_sectionID.resx">
+      <DependentUpon>201604211019305_sectionID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604220912522_fpsidestats.resx">
+      <DependentUpon>201604220912522_fpsidestats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604220914042_fpsidestats1.resx">
+      <DependentUpon>201604220914042_fpsidestats1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

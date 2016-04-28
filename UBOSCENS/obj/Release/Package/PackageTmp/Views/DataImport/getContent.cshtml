@@ -1,13 +1,87 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "getContent";
+    //Layout = "~/Views/Shared/NoLayout.cshtml";
+    Layout = "~/Views/Shared/_Default.cshtml";
 }
+@section styles{
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
 
+    <style>
+        #A_1 {
+            box-sizing: border-box;
+            color: grey;
+            cursor: pointer;
+            display: inline-block;
+            height: 38px;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            white-space: nowrap;
+            width: 141px;
+            column-rule-color: rgb(91, 192, 222);
+            perspective-origin: 70.5px 19px;
+            transform-origin: 70.5px 19px;
+            border: 3px solid grey;
+            font: normal normal normal normal 14px / 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            outline: rgb(91, 192, 222) none 0px;
+            padding: 6px 12px;
+            transition: all 0.3s ease 0s;
+        }
+        
 
+#custom-search-input {
+        margin:0;
+        margin-top: 10px;
+        padding: 0;
+    }
+ 
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:#D9230F;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+
+        /*#A_1*/
+    </style>
+}
+@*<input id="chapter" hidden="@ViewBag.chapter" />*@
 <div class="report-details">
-    
+    <div style="padding-bottom:10px">
+        <a href="/DataImport/getPreviousChapter?chapterName=@ViewBag.chapter" id="A_1">Previous</a>
+        <a href="/DataImport/getNextChapter?chapterName=@ViewBag.chapter" id="A_1">Next</a>
+
+    </div>
+
+
     @Html.Raw(ViewBag.content)
-     
+
 </div>
 
 

@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-    Layout = "~/Views/Shared/NoLayout.cshtml";
+    Layout = "~/Views/Shared/_Default.cshtml";
 
 }
 @section Styles{
@@ -87,8 +87,9 @@
 @*<div id="mapcontainer" class="col-md-12"></div>*@
 </div>
 <div class="container chart-section" @*style="background-image: url('/Content/Images/bg_m.jpg');background-size: 100%;margin-top: -16px;background-repeat:no-repeat;background-position-y: -60px"*@>
-    <h4 id="title_card">
-        Population size, Inter-censal Population increases and average annual growth rates
+    <h4 id="title_card" style="color: rgb(0, 102, 153);font-family: Lovelo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;">
+        District Profiler
     </h4>
     <div class="ct-chart " style="height: 400px;"></div>
 </div>

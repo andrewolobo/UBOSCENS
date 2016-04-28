@@ -23,7 +23,14 @@ namespace UBOSCENS.Controllers.Admin
             ViewBag.section = db.Sections.Select(x => x).ToList();
             return View(db.VStats.ToList());
         }
-
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult Administration()
+        {
+            return View();
+        }
         // GET: VisualizerStatistics/Details/5
         public ActionResult Details(Guid? id)
         {

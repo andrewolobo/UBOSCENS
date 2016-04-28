@@ -1,0 +1,318 @@
+/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    height: 100%;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    height: 100%;
+    font-family: 'PT Sans', sans-serif;
+}
+
+/** CAREERS **/
+
+
+/** LANDING **/
+
+
+
+/** NAVBAR **/
+
+.hero {
+    float: center;
+    padding-left: 18%;
+    padding-right: 20%px;
+}
+.navbar-default {
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    min-height: 90px;
+    padding-top: 0px;
+    transition: 1s all ease;
+    
+}
+.navbar-header {
+    padding-top: 25px;
+    background: #dd4e0c;
+    
+}
+
+.numbers {
+    background: rgba(00,00,00,0.7);
+    color: #ffffff;
+    padding-top: 5px;
+}
+
+.orange {
+    background: #DD4E0C;
+    padding-top: 10px;
+    margin-top: 0;
+}
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+    margin-top: -12%;
+}
+.nav > li > a:hover {
+    background-color: transparent;
+    
+}
+
+.nav > li > a:focus {
+    background-color: transparent;
+}
+
+.nav >li > a {
+    color: #ffffff; 
+}
+
+.nav > li.active {
+    background-color: #d26381;
+    transition: 1s all ease;
+}
+
+.nav >li.active > a {	
+	color: #ffffff;
+}
+
+.effect {
+    background-color: #ffffff;
+    opacity: 0.95;
+    min-height: 30px;
+    box-shadow: 0 0 10px black;
+    padding-top: 0;
+    
+
+}
+
+.effect .nav-justified {
+    margin-top: 0.9%;
+}
+
+.well {
+    background-color: #411f06;
+    border: none !important;
+    border-radius: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    box-shadow: 0 6px 10px 0 rgba(255, 75, 6, 0.04), 0 1px 18px 0 rgba(255, 75, 6, 0.18), 0 3px 5px -1px rgba(255, 75, 6, 0);
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media(max-width: 767px) {
+    .navbar-collapse.in, .collapsing {
+        background-color: #411f06;
+    }
+    .view-first .well {
+        margin-top: -10%;
+        
+}
+    .hero {
+        padding-left: 10%;
+        padding-right: 10%px;
+    }
+    .navbar-default .navbar-collapse {
+        border: none;
+    }
+    
+
+}
+@media(min-width: 768px) {
+    
+
+}
+@media(min-width: 992px) {
+
+}
+@media(min-width: 1200px) {
+
+
+}
+
+
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

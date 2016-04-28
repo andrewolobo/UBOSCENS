@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Administration";
+    Layout = "~/Views/Shared/_NoLayoutMap.cshtml";
+}
+
+<h2>Administration</h2>
+<div class="row">
+    <div class="row-md-4">
+        <a href="" target="_parent">FrontPage Statistics</a>
+    </div>
+    <div class="row-md-8" height="500px">
+        <iframe frameborder="0"  src="~/VisualizerStatistics/Index"></iframe>
+    </div>
+</div>
+@section scripts {
+<script>
+    $(document).ready(function (e) {
+        console.log("Start");
+    });
+</script>
+
+}

@@ -28,6 +28,7 @@ namespace UBOSCENS
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/quickselect.css",
+                      "~/Content/main.css",
                       "~/Content/font-awesome/css/font-awesome.min.css",
                       "~/Content/jquery.dynatable.css",
                       "~/Content/modern-business.css",

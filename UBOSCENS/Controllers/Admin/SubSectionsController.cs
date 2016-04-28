@@ -57,8 +57,6 @@ namespace UBOSCENS.Controllers.Admin
             Debug.WriteLine(th.Count());
             ViewBag.titles = th;
             return View();
-
-            return View();
         }
         public string getGraph(Categorization list)
         {

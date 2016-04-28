@@ -196,7 +196,7 @@ div.treeview {
     color: $white;
 }
 
-.navbar-brand {
+/*.navbar-brand {
     position: relative;
     z-index: 2;
 }
@@ -273,6 +273,8 @@ div.treeview {
         float: none;
     }
 }
+
+    */
 
 #myCarousel .carousel-caption {
     left: 0;

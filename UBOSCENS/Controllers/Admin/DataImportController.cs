@@ -450,7 +450,6 @@ namespace UBOSCENS.Controllers.Admin
         {
             EpubBook epub = EpubReader.OpenBook(System.Web.Hosting.HostingEnvironment.MapPath("~/Uploads/Epub/") + file);
             String stuff = "";
-            string chapterTitles = "";
             foreach (EpubChapter chapter in epub.Chapters)
             {
                 String chapterTitle = chapter.Title;
@@ -574,13 +573,14 @@ namespace UBOSCENS.Controllers.Admin
             if (id != null)
             {
                 DatabaseContext db = new DatabaseContext();
-                var result = db.VStats.Where(x => x.id == id).Select(x => x.data).First();
-                var decoded = JsonConvert.DeserializeObject<Indicator>(result);
+                var result = db.VStats.Where(x => x.id == id).Select(x => x).First();
+                var decoded = JsonConvert.DeserializeObject<Indicator>(result.data);
                 var selections = decoded.Tables.First().Categorization.First().Category;
                 ViewBag.selections = selections;
                 ViewBag.identifier = id;
                 ViewBag.table = getTable(decoded.Tables.First().Categorization.First());
                 ViewBag.graph = getGraph(decoded.Tables.First().Categorization.First());
+                ViewBag.name = result.Title;
                 Debug.WriteLine(th.Count());
                 ViewBag.titles = th;
             }

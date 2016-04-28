@@ -196,7 +196,7 @@ div.treeview {
     color: $white;
 }
 
-.navbar-brand {
+/*.navbar-brand {
     position: relative;
     z-index: 2;
 }
@@ -273,6 +273,8 @@ div.treeview {
         float: none;
     }
 }
+
+    */
 
 #myCarousel .carousel-caption {
     left: 0;
@@ -492,4 +494,75 @@ footer {
 
 .copyright-img {
     padding: 20px 0;
+}
+
+.chart-section {
+    min-height: 400px;
+    background: #FFF;
+    padding: 20px;
+}
+
+.chart-section h4 {
+    text-align: center;
+}
+
+.section-highlights {
+       background: #FFF;
+    margin-bottom: 10px;
+    margin-right: 4px;
+    margin-left: 6px;
+    width: 31%;
+    margin-top: 10px;
+    min-height: 226px;
+}
+
+.section-highlights button {
+        background-color: #0577BD;
+        border: none;
+}
+
+.section-coverage {
+    padding: 0px;
+    min-height: 275px;
+    margin-top: 24px;
+    background: #FFF;
+}
+
+.section-coverage .mrow {
+    padding-left: 23px;
+}
+
+.section-info {
+    min-height: 215px;
+    color: #FFF;
+    margin-top: 10px;
+
+
+}
+
+.section-info .item p{
+    font-size:18px;
+
+}
+
+.section-info  p{
+    font-size:18px;
+
+}
+
+.ct-label {
+    fill: rgba(0,0,0,.4);
+    color: #000 ! important;
+    font-size: 11px ! important;
+    line-height: 1;
+    font-weight: bold ! important;
+}
+
+.partner-section img {
+    max-height: 110px;
+    margin-top:10px;
+}
+
+.partner-section h4 {
+     
 }

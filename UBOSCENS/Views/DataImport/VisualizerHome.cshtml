@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "VisualizerHome";
-    Layout = "~/Views/Shared/_NoLayoutMap.cshtml";
+    //Layout = "~/Views/Shared/_NoLayoutMap.cshtml";
+    Layout = "~/Views/Shared/_Default.cshtml";
 }
 @section styles{
     <style>
@@ -20,10 +21,6 @@
                 margin-bottom: 20px;
             }
 
-        .well {
-            background-color: #f5f5f5;
-            padding: 4px;
-        }
 
         .list-group {
             overflow: hidden;
@@ -195,7 +192,21 @@
 
 
 <div class="container" style="background-color:white;padding: 67px;">
+    <div class="row " style=" margin-top: -40px;">
+        <h4 style="margin-left:40%;color: rgb(0, 102, 153);font-family: Lovelo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;">
+            Interactive Visualizations
+        </h4>
+
+        <div class="col-md-12" style="margin-bottom:10px">
+            <br />
+            <p style="margin: 0 10px 0 10px;    text-align: center;">
+                The district profiler allows you to view various statistics about your district with data from the 2014 National Housing and Population Census.Search and click on a district to find out more.
+            </p>
+        </div>
+    </div>
     <div class="row">
+
         <div class="list-group col-md-3" style="padding-right: 0px;">
             <span href="#" class="list-group-item" style="background-color: grey; color: WHITE;">
                 Categries
@@ -216,7 +227,7 @@
                         @list.Title
                         <ul class="list-group-submenu">
                             <a href="/DataImport/Visualize/@list.id"><li class="list-group-submenu-item info"><span class="fa fa-fw fa-eye"></span></li></a>
-                            <a href=""><li class="list-group-submenu-item"><span class="glyphicon glyphicon-download-alt"></span></li></a>
+                            <a class="download" href=""><li class="list-group-submenu-item"><span class="glyphicon glyphicon-download-alt"></span></li></a>
                         </ul>
                     </li>
 
@@ -230,6 +241,9 @@
 
     <script>
         $(function () {
+            $(".download").on("click", function (e) {
+                alert("Error: Permission Denied: Agent pid 59566")
+            })
             $('.list-group-item').on('mouseover', function (event) {
                 event.preventDefault();
                 $(this).closest('li').addClass('open');

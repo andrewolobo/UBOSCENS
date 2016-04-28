@@ -79,3 +79,10 @@ C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\Remo
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\LinqToExcel.xml
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\bin\log4net.xml
 C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.mapcollection.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.EventsTable.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.EventsActual.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.FPPageStats.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.FPStats2.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.sectionID.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.fpsidestats.resources
+C:\Users\Andrew\documents\visual studio 2013\Projects\UBOSCENS\UBOSCENS\obj\Release\UBOSCENS.Migrations.fpsidestats1.resources

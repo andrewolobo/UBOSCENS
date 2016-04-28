@@ -104,7 +104,6 @@ body {
 }
 .navbar-default .navbar-toggle {
     border-color: #ddd;
-    margin-top: -12%;
 }
 .nav > li > a:hover {
     background-color: transparent;

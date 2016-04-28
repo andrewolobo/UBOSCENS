@@ -31,8 +31,6 @@ body {
 
 .navbar-header {
 
-    min-height: 120px;
-    height: 104px;
     width: 100%;
 }
 
@@ -452,7 +450,7 @@ color: # ! important;
     margin-top: -27px;
     border: none;
 }
-}
+
 
 
     .navbar-brand {
@@ -486,6 +484,18 @@ color: # ! important;
 }
 
 }
+
+
+
+    .content-wrapper {
+        margin: 0 auto;
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5em;
+    min-height: 800px;
+    clear: both;
+    }
+
 
 @media(max-width:480px) {
     

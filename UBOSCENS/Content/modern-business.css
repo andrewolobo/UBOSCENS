@@ -29,10 +29,6 @@ body {
 
 /* Header Css */
 
-.navbar-header {
-
-    width: 100%;
-}
 
 .header-section {
   width: 100%;
@@ -464,7 +460,7 @@ color: # ! important;
 
     .navbar-toggle {
     /* position: relative; */
-    float: right;
+    float: none;
     padding: 9px 10px;
     margin-top: 8px;
     margin-right: 15px;

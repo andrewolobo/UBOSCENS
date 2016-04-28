@@ -351,7 +351,7 @@ namespace UBOSCENS.Controllers.Admin
                     if (Regex.IsMatch(subchapter.HtmlContent, search, RegexOptions.IgnoreCase))
                     {
                         results.Add(subchapter.Title);
-                        resulter.Add(subchapter.Title, subchapter.HtmlContent.Substring(0,3000));
+                        resulter.Add(subchapter.Title, subchapter.HtmlContent.Substring(0,30));
                     }
                 }
             }
@@ -647,6 +647,7 @@ namespace UBOSCENS.Controllers.Admin
             var list = db.MapCollection.Select(x => x).Take(5);
             ViewBag.list = list;
             ViewBag.districts = getDistricts();
+            ViewBag.district = district;
             return View();
         }
         public string ProfileMap()

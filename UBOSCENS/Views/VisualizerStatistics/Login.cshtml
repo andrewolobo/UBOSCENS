@@ -1,7 +1,50 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/NoFooter.cshtml";
+}
+@section styles{
+    <style>
+        body{
+            background-color:white;
+        }
+        .panel-heading {
+            padding: 5px 15px;
+        }
+
+        .panel-footer {
+            padding: 1px 15px;
+            color: #A0A0A0;
+        }
+
+        .profile-img {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 10px;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+    </style>
 }
 
-<h2>Login</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+                <h4>Administration Panel</h4>
+                <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+                </br>
+                <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+                </br>
+                <div class="wrapper">
+                    <span class="group-btn">
+                        <a href="/VisualizerStatistics/Administration" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 

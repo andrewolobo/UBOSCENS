@@ -30,6 +30,147 @@
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("styles", required: false)
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <style>
+        footer {
+            background-color: #0c1a1e;
+            min-height: 350px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .footerleft {
+            margin-top: 50px;
+            padding: 0 36px;
+        }
+
+        .logofooter {
+            margin-bottom: 10px;
+            font-size: 25px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .footerleft p {
+            color: #fff;
+            font-size: 12px !important;
+            font-family: 'Open Sans', sans-serif;
+            margin-bottom: 15px;
+        }
+
+            .footerleft p i {
+                width: 20px;
+                color: #999;
+            }
+
+
+        .paddingtop-bottom {
+            margin-top: 50px;
+        }
+
+        .footer-ul {
+            list-style-type: none;
+            padding-left: 0px;
+            margin-left: 2px;
+        }
+
+            .footer-ul li {
+                line-height: 29px;
+                font-size: 12px;
+            }
+
+                .footer-ul li a {
+                    color: #a0a3a4;
+                    transition: color 0.2s linear 0s, background 0.2s linear 0s;
+                }
+
+            .footer-ul i {
+                margin-right: 10px;
+            }
+
+            .footer-ul li a:hover {
+                transition: color 0.2s linear 0s, background 0.2s linear 0s;
+                color: #ff670f;
+            }
+
+        .social:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -o-transform: scale(1.1);
+        }
+
+
+
+
+        .icon-ul {
+            list-style-type: none !important;
+            margin: 0px;
+            padding: 0px;
+        }
+
+            .icon-ul li {
+                line-height: 75px;
+                width: 100%;
+                float: left;
+            }
+
+        .icon {
+            float: left;
+            margin-right: 5px;
+        }
+
+
+        .copyright {
+            min-height: 40px;
+            background-color: #000000;
+        }
+
+            .copyright p {
+                text-align: left;
+                color: #FFF;
+                padding: 10px 0;
+                margin-bottom: 0px;
+            }
+
+        .heading7 {
+            font-size: 21px;
+            font-weight: 700;
+            color: #d9d6d6;
+            margin-bottom: 22px;
+        }
+
+        .post p {
+            font-size: 12px;
+            color: #FFF;
+            line-height: 20px;
+        }
+
+            .post p span {
+                display: block;
+                color: #8f8f8f;
+            }
+
+        .bottom_ul {
+            list-style-type: none;
+            float: right;
+            margin-bottom: 0px;
+        }
+
+            .bottom_ul li {
+                float: left;
+                line-height: 40px;
+            }
+
+                .bottom_ul li:after {
+                    content: "/";
+                    color: #FFF;
+                    margin-right: 8px;
+                    margin-left: 8px;
+                }
+
+                .bottom_ul li a {
+                    color: #FFF;
+                    font-size: 12px;
+                }
+    </style>
 
 
 
@@ -40,7 +181,7 @@
     <div class="container header-section">
         <header font-family:pt sans , sans-serif;>
 
-            <nav class="navbar navbar-default" >
+            <nav class="navbar navbar-default">
                 <div class="container-fluid">
 
                     <div class="row orange">
@@ -59,7 +200,7 @@
                         </div> <!--navbar-header-->
                     </div>
 
-          
+
 
                     <div class="row orange">
                         <div class="col-md-8 col-md-offset-2">
@@ -94,71 +235,43 @@
         <hr />
 
     </div>
-    <footer role="contentinfo" class="site-footer" id="colophon">
+    <footer>
         <div class="container">
             <div class="row">
-                <div id="accordion" class="collapse-footer">
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h4 class="panel-title"> <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" class="collapsed"> <span class="glyphicon glyphicon-chevron-down"></span> </a> </h4>
-                        </div>
-                        <div class="panel-collapse collapse" id="collapseOne" style="height: 0px;">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <h5 class="title"><span>Main Navigation</span></h5>
-                                        <div class="menu-main-menu-container">
-                                            <ul class="nav nav-footer" id="menu-main-menu-1">
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14 current_page_item menu-item-16"><a href="http://localhost/wpJoinRedHawk/">Home</a></li>
-                                                <li><a href="#">About Us</a></li>
-                                                <li><a href="#">Service Support Model</a></li>
-                                                <li><a href="#">Payouts And Fees</a></li>
-                                                <li><a href="#">Practice Models</a></li>
-                                                <li><a href="#">Services</a></li>
-                                                <li><a href="#">Join With Us</a></li>
-                                                <li><a href="#">Contact Us</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6">
-                                        <h5 class="title"><span>Site map</span></h5>
-                                        <div class="menu-footer-sitemap-container">
-                                            <ul class="nav nav-footer" id="menu-footer-sitemap">
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-87" id="menu-item-87"><a href="http://localhost/wpJoinRedHawk/?page_id=82">Payouts And Fees</a></li>
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-88" id="menu-item-88"><a href="#">Service Support Model</a></li>
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89" id="menu-item-89"><a href="#">About Us</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3  col-sm-6">
-                                        <h5 class="title"><span>Don't hesitate to contact us!</span></h5>
-                                        <p> Please give us time to let <strong>UBOSCENS</strong> know about any problems or suggestions what you have.</p>
-                                        <div class="clear"> </div>
-                                        <a class="btn btn-default btn-sm" href="#">Contact with us</a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-md-4 col-sm-6 footerleft ">
+                    <div class="logofooter">UBOS Uganda</div>
+                    <p>The Uganda Bureau of Statistics (UBOS) is committed to the production and dissemination of integrated statistical information that meets the international standards quality requirements</p>
+                    <p><i class="fa fa-map-pin"></i> UBOS</p>
+                    <p><i class="fa fa-phone"></i> Statistics House, Plot 9 Colville Street/Box 7186,Kampala Colville St, Kampala, Uganda</p>
+                    <p><i class="fa fa-envelope"></i> E-mail : info@ubos.com</p>
+
+                </div>
+                <div class="col-md-2 col-sm-6 paddingtop-bottom">
+                    <h6 class="heading7">GENERAL LINKS</h6>
+                    <ul class="footer-ul">
+                        <li><a href="http://www.ubos.org/category/vacancies/"> Career</a></li>
+                        <li><a href="http://www.ubos.org/about-us/corporate-plan/">Corporate Policies</a></li>
+                        <li><a href="http://www.ubos.org/services/">Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                    <h6 class="heading7">LATEST NEWS</h6>
+                    <div class="post">
+                        <p>2014 Census Report Released to the public <span>March 24,2016</span></p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-height="300" data-small-header="false" style="margin-bottom:15px;" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        <div class="fb-xfbml-parse-ignore">
+                            <blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Copyright -->
-        <div class="copyright">
-            <div class="container">
-                <div class="row copyright-img">
-                    <div class="col-lg-4 col-sm-4"> Uganda Bureau of Statistics (UBOS)</div>
-                    <div class="col-lg-8 col-sm-8 text-right" id="footertext"> Plot 9 Colville Street, P.O. box 7186 Kampala, Uganda; Telephone: (256-414) 7060000 Fax: (256-414) 237553/230370; E-mail: ubos@ubos.org; Website: www.ubos.org. </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Copyright -->
     </footer>
+    <!--footer start from here-->
     <!-- /footer -->
-
-
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
@@ -171,15 +284,15 @@
     <script src="~/Content/cssfx.js"></script>
     <script src="~/Content/kcounter.js"></script>
     <script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-55784736-2', 'auto');
-    ga('send', 'pageview');
+        ga('create', 'UA-55784736-2', 'auto');
+        ga('send', 'pageview');
 
     </script>
 

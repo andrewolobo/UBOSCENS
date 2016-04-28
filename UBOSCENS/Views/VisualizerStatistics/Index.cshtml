@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<UBOSCENS.Models.VisualizerStatistics>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/NoLayout.cshtml";
+    ViewBag.Title = "Manage Visual Statistics";
+    Layout = "~/Views/Shared/NoFooter.cshtml";
 }
+
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "Home", new { @class = "btn icon-btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -42,9 +43,9 @@
             @Html.DisplayFor(modelItem => item.data)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.id, @class = "btn icon-btn btn-default" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id, @class = "btn icon-btn btn-default" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id,@class = "btn icon-btn btn-default" })
         </td>
     </tr>
 }

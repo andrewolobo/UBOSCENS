@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - 2014 Population and Housing Census </title>
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Content/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/fav/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Content/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/fav/favicon-16x16.png">
+    <link rel="manifest" href="~/Content/fav/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/Content/fav/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <style>
+        h2, h4 {
+            color: rgb(0, 102, 153);
+            font-family: Lovelo, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 700;
+        }
+
+        .btn-glyphicon {
+            padding: 8px;
+            background: #ffffff;
+            margin-right: 4px;
+        }
+
+        .icon-btn {
+            padding: 1px 15px 3px 2px;
+            border-radius: 50px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="container" style="background-color:ghostwhite">
+
+        @RenderBody()
+        <hr />
+
+    </div>
+
+    <!-- /footer -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="http://code.highcharts.com/maps/highmaps.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script src="~/Content/UGD44/boottree.js"></script>
+    <script src="~/Content/UGD44/carousel.js"></script>
+    <script src="~/Content/cssfx.js"></script>
+    <script src="~/Content/kcounter.js"></script>
+</body>
+</html>

@@ -493,6 +493,7 @@
     <Content Include="Views\FPSideStats\Edit.cshtml" />
     <Content Include="Views\FPSideStats\Index.cshtml" />
     <Content Include="Views\Shared\_Default.cshtml" />
+    <Content Include="Views\Shared\NoFooter.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

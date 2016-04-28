@@ -2,21 +2,54 @@
     ViewBag.Title = "Administration";
     Layout = "~/Views/Shared/_NoLayoutMap.cshtml";
 }
+@section styles{
+    <style>
+        body {
+            margin: 0; /* Reset default margin */
+        }
 
+        iframe {
+            display: block; /* iframes are inline by default */
+            border: none; /* Reset default border */
+            height: 100vh; /* Viewport-relative units */
+            width: 100vw;
+        }
+
+        .demoPadder {
+            padding-top: 15px;
+        }
+
+        .btn-default {
+            color: #007aff;
+            background-color: #fff;
+            border-color: #007aff;
+        }
+
+            .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+                color: #fff;
+                background-color: #007aff;
+                border-color: #007aff;
+            }
+    </style>
+}
 <h2>Administration</h2>
 <div class="row">
-    <div class="row-md-4">
-        <a href="" target="_parent">FrontPage Statistics</a>
+    <div class="btn-group demoPadder" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-default"><a href="~/VisualizerStatistics/Index" style="text-decoration:none" target="myiframe">Manage Visual Statistics</a></button>
+        <button type="button" class="btn btn-default"><a href="~/FP/Index" target="myiframe">Manage  Front Page Side Statistics</a></button>
+        <button type="button" class="btn btn-default"><a href="~/DataImport/FPGraph" target="myiframe">Manage Front Page Graphs</a></button>
+        <button type="button" class="btn btn-default"><a href="~/DataImport/ListFPGraphs" target="myiframe">List Front Page Graphs</a></button>
+        <button type="button" class="btn btn-default"><a href="~/DataImport/Vstats" target="myiframe"> Manage a Story Section</a></button>
+        <button type="button" class="btn btn-default"><a href="~/Revisions/" target="myiframe"> Manage Revisions</a></button>
     </div>
-    <div class="row-md-8" height="500px">
-        <iframe frameborder="0"  src="~/VisualizerStatistics/Index"></iframe>
+    <div class="row-md-8"  style="height:700px">
+        <iframe name="myiframe" frameborder="0" style="border: 0; width: 100%; height: 100%"></iframe>
     </div>
 </div>
 @section scripts {
-<script>
-    $(document).ready(function (e) {
-        console.log("Start");
-    });
-</script>
-
+    <script>
+        $(document).ready(function (e) {
+            console.log("Start");
+        });
+    </script>
 }
